@@ -28,5 +28,5 @@ script:
 
 after_success:
   - mvn coveralls:report
-  - mvn sonar:sonar
+  - sonar-scanner
   - bash <(curl -s https://codecov.io/bash)

@@ -1,5 +1,7 @@
 # 企业应用快速开发框架
 
+[![Build Status](https://travis-ci.org/han-feng/cvicse-boot.svg?branch=master)](https://travis-ci.org/han-feng/cvicse-boot) [![Coverage Status](https://coveralls.io/repos/han-feng/cvicse-boot/badge.png?branch=master)](https://coveralls.io/r/han-feng/cvicse-boot?branch=master) [![codecov](https://codecov.io/gh/han-feng/cvicse-boot/branch/master/graph/badge.svg)](https://codecov.io/gh/han-feng/cvicse-boot) [![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=com.cvicse.boot%3Acvicse-boot&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.cvicse.boot%3Acvicse-boot)
+
 项目代码采用 Maven 组织管理，可以单独使用 Maven 进行打包构建，也可以导入 Eclipse 开发。
 
 ## 使用 Maven 构建
