@@ -24,9 +24,9 @@ cache:
     - "cvicse-frontend/node_modules"
 
 script:
-  - mvn clean cobertura:cobertura package
+  - mvn clean package
 
 after_success:
-  - mvn coveralls:report
+  - mvn jacoco:report coveralls:report
   - sonar-scanner
   - bash <(curl -s https://codecov.io/bash)

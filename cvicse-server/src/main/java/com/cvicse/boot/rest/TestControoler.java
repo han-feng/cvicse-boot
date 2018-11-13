@@ -1,4 +1,4 @@
-package com.cvicse.vdp.rest;
+package com.cvicse.boot.rest;
 
 import javax.servlet.ServletContext;
 
