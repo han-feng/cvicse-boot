@@ -1,0 +1,30 @@
+logging: # 日志配置
+  file: 'logs/app.log'
+  level:
+    root: warn
+    com.cvicse: info
+  pattern:
+    console: '%highlight{%d{ABSOLUTE} [%c{1}] %-5p %m%n%throwable}'
+    file: '%d [%c{1}] %-5p %m%n'
+
+server:
+  compression: # GZip 压缩配置
+    enabled: true
+    min-response-size: 2048
+    mime-types:
+      - application/javascript
+      - application/json
+      - application/xml
+      - application/x-font-ttf
+      - application/x-font-opentype
+      - text/html
+      - text/css
+      - text/xml
+      - text/plain
+      - image/svg+xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
