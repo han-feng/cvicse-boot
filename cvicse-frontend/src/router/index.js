@@ -8,6 +8,7 @@ import 'nprogress/nprogress.css'
 import store from '@/store/index'
 
 import util from '@/libs/util.js'
+import { checkPermission } from '@/libs/util.auth.js'
 
 // 路由数据
 import routes from './routes'
@@ -34,14 +35,23 @@ router.beforeEach((to, from, next) => {
     // 请根据自身业务需要修改
     const token = util.cookies.get('token')
     if (token && token !== 'undefined') {
-      next()
+      // 已登录，则进行许可检查
+      if (
+        !to.matched.some(r => r.meta.requiresAuth === 'check') ||
+        checkPermission(to.fullPath)
+      ) {
+        next()
+      } else {
+        next({ name: '403' })
+      }
     } else {
-      // 将当前预计打开的页面完整地址临时存储 登录后继续跳转
-      // 这个 cookie(redirect) 会在登录后自动删除
-      util.cookies.set('redirect', to.fullPath)
       // 没有登录的时候跳转到登录界面
+      // 携带上登陆成功之后需要跳转的页面完整路径
       next({
-        name: 'login'
+        name: 'login',
+        query: {
+          redirect: to.fullPath
+        }
       })
     }
   } else {

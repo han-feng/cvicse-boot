@@ -14,3 +14,7 @@ mvn install
 ## Eclipse 开发环境
 
 使用 Eclipse Import 功能，选择 Maven 下的 Existing Maven Projects 方式导入当前项目即可。
+
+---
+
+<a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
