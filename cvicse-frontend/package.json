@@ -10,7 +10,7 @@
     "build:nomock": "vue-cli-service build --mode nomock --dest target/dist_nomock",
     "build:travis": "vue-cli-service build --mode travis",
     "lint": "vue-cli-service lint --fix",
-    "pkg": "pkg -t win package.json",
+    "pkg": "pkg service.js -o target/vdp-server -c .pkg.config.json -t win-x64,win-x86 -d > target/pkg.log",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.12.1",
     "dayjs": "^1.6.7",
-    "element-ui": "^2.4.9",
+    "element-ui": "^2.4.10",
     "flex.css": "^1.1.7",
     "fuse.js": "^3.3.0",
     "hotkeys-js": "^3.3.6",
@@ -33,26 +33,26 @@
     "screenfull": "^3.3.2",
     "ua-parser-js": "^0.7.19",
     "vue": "^2.5.17",
-    "vue-i18n": "^8.3.1",
+    "vue-i18n": "^8.3.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
     "@vue/cli-plugin-babel": "^3.1.1",
-    "@vue/cli-plugin-eslint": "^3.1.4",
+    "@vue/cli-plugin-eslint": "^3.1.5",
     "@vue/cli-plugin-unit-jest": "^3.1.1",
-    "@vue/cli-service": "^3.1.3",
+    "@vue/cli-service": "^3.1.4",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "compression": "^1.7.3",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-vue": "^5.0.0-beta.4",
     "express": "^4.16.4",
-    "lint-staged": "^8.0.4",
+    "lint-staged": "^8.0.5",
     "node-sass": "^4.10.0",
     "open": "0.0.5",
     "pkg": "^4.3.4",
@@ -119,12 +119,6 @@
     "*.vue": [
       "vue-cli-service lint",
       "git add"
-    ]
-  },
-  "bin": "service.js",
-  "pkg": {
-    "assets": [
-      "target/dist/**/*"
     ]
   }
 }
