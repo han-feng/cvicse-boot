@@ -38,7 +38,7 @@ after_success:
 deploy:
   provider: pages
   local-dir: cvicse-frontend/target/dist
-  skip-cleanup: false
+  skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:
