@@ -34,3 +34,12 @@ after_success:
   - mvn coveralls:report
   - bash <(curl -s https://codecov.io/bash)
   - sonar-scanner
+
+deploy:
+  provider: pages
+  local-dir: cvicse-frontend/target/dist
+  skip-cleanup: false
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
