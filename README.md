@@ -1,6 +1,11 @@
-# 企业应用快速开发框架
+# 企业级应用快速开发框架
 
-[![Build Status](https://travis-ci.org/han-feng/cvicse-boot.svg?branch=master)](https://travis-ci.org/han-feng/cvicse-boot) [![Coverage Status](https://coveralls.io/repos/github/han-feng/cvicse-boot/badge.svg?branch=master)](https://coveralls.io/github/han-feng/cvicse-boot?branch=master) [![codecov](https://codecov.io/gh/han-feng/cvicse-boot/branch/master/graph/badge.svg)](https://codecov.io/gh/han-feng/cvicse-boot) [![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=com.cvicse.boot%3Acvicse-boot&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.cvicse.boot%3Acvicse-boot)
+[![Build Status](https://travis-ci.org/han-feng/cvicse-boot.svg?branch=master)](https://travis-ci.org/han-feng/cvicse-boot)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=com.cvicse.boot%3Acvicse-boot&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.cvicse.boot%3Acvicse-boot)
+[![codecov](https://codecov.io/gh/han-feng/cvicse-boot/branch/master/graph/badge.svg)](https://codecov.io/gh/han-feng/cvicse-boot)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/han-feng/cvicse-boot.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/han-feng/cvicse-boot.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/han-feng/cvicse-boot.svg)
 
 项目代码采用 Maven 组织管理，可以单独使用 Maven 进行打包构建，也可以导入 Eclipse 开发。
 

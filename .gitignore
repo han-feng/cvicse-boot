@@ -13,6 +13,8 @@ logs/
 .classpath
 .project
 .factorypath
+.env.local
+.env.*.local
 
 *.suo
 *.ntvs*
