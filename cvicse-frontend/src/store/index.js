@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import vuexAlong from 'vuex-along'
+import vuexAlong from '@/plugin/vuex-along'
 
 import session from './modules/session'
 import d2admin from './modules/d2admin'
