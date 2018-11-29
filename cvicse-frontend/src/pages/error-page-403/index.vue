@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <p class="page_title">404 page not found</p>
+    <p class="page_title">403 Forbidden</p>
     <el-button class="d2-mt" @click="$router.replace({ path: '/' })">
       返回首页
     </el-button>
@@ -9,7 +9,7 @@
 
 <style lang="scss" scoped>
 .page {
-  background: transparent;// radial-gradient(at top center, #fff 0%, #abc 50%) #abc;
+  background: radial-gradient(at top center, #fff 0%, #abc 50%) #abc;
   background-blend-mode: multiply,multiply;
   height: 100%;
   display: flex;

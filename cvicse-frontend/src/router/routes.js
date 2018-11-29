@@ -65,6 +65,12 @@ const frameOut = [
  * 错误页面
  */
 const errorPage = [
+  // 403
+  {
+    path: '/403',
+    name: '403',
+    component: () => import('@/pages/error-page-403')
+  },
   // 404
   {
     path: '*',

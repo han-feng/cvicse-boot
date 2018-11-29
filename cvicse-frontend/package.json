@@ -10,6 +10,7 @@
     "build:nomock": "vue-cli-service build --mode nomock --dest target/dist_nomock",
     "build:travis": "vue-cli-service build --mode travis",
     "lint": "vue-cli-service lint --fix",
+    "inspect": "vue-cli-service inspect > target/inspect-dev.log && vue-cli-service inspect --mode production > target/inspect-pro.log",
     "pkg": "pkg service.js -o target/vdp-server -c .pkg.config.json -t win-x64,win-x86 -d > target/pkg.log",
     "test:unit": "vue-cli-service test:unit"
   },
