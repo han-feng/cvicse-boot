@@ -69,13 +69,15 @@ const errorPage = [
   {
     path: '/403',
     name: '403',
-    component: () => import('@/pages/error-page-403')
+    component: () => import('@/pages/error-page'),
+    props: { code: 403 }
   },
   // 404
   {
     path: '*',
     name: '404',
-    component: () => import('@/pages/error-page-404')
+    component: () => import('@/pages/error-page'),
+    props: { code: 404 }
   }
 ]
 

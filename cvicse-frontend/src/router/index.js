@@ -31,9 +31,12 @@ router.beforeEach((to, from, next) => {
   store.commit('d2admin/search/set', false)
   if (to.name === '404') {
     if (!from.name) {
+      // 直接在地址栏输入错误地址导致的404
       next()
     } else {
+      // 路由切换导致的404
       next(new Error(`访问路径 “${to.fullPath}” 不存在，如有疑问请与管理员联系`))
+      // https://github.com/d2-projects/d2-admin/issues/138
       NProgress.done()
     }
   } else if (to.matched.some(r => r.meta.requiresAuth)) {
@@ -53,10 +56,13 @@ router.beforeEach((to, from, next) => {
         // 产生该异常原因有：1、权限配置不合理，显示了无权访问的按钮等；2、地址栏输入无权访问的路径。
         // 以上情况均需要提醒管理员
         if (!from.name) {
-          next({ name: '403' })
+          // 直接在地址栏输入未授权地址导致的403
+          next({ name: '403', params: { path: to.fullPath } })
         } else {
+          // 路由切换导致的403
           next(new Error(`未授权访问 “${to.fullPath}”，如有疑问请与管理员联系`))
         }
+        // https://github.com/d2-projects/d2-admin/issues/138
         NProgress.done()
       }
     } else {
