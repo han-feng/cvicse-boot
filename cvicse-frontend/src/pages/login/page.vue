@@ -8,57 +8,68 @@
       </div>
       <!-- 表单部分 -->
       <div class="form-group">
-        <el-card>
-          <el-form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
-            <el-form-item  prop="username">
-              <el-input type="text" v-model="formLogin.username" placeholder="用户名">
+        <Card>
+          <Form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
+            <FormItem  prop="username">
+              <ElInput type="text" v-model="formLogin.username" placeholder="用户名">
                 <i slot="prepend" class="fa fa-user-circle-o"></i>
-              </el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-              <el-input type="password" v-model="formLogin.password" placeholder="密码">
+              </ElInput>
+            </FormItem>
+            <FormItem prop="password">
+              <ElInput type="password" v-model="formLogin.password" placeholder="密码">
                 <i slot="prepend" class="fa fa-keyboard-o"></i>
-              </el-input>
-            </el-form-item>
-            <el-form-item prop="code" v-if="requiredInputCode">
-              <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
+              </ElInput>
+            </FormItem>
+            <FormItem prop="code" v-if="requiredInputCode">
+              <ElInput type="text" v-model="formLogin.code" placeholder="- - - -">
                 <template slot="prepend">验证码</template>
                 <template slot="append">
                   <img class="login-code" src="./image/login-code.png">
                 </template>
-              </el-input>
-            </el-form-item>
-            <el-button size="default" @click="submit" type="primary" class="button-login">登录</el-button>
-          </el-form>
-        </el-card>
+              </ElInput>
+            </FormItem>
+            <Button size="default" @click="submit" type="primary" class="button-login">登录</Button>
+          </Form>
+        </Card>
       </div>
       <!-- 快速登录按钮 -->
-      <el-button size="default" type="info" class="button-help" @click="dialogVisible = true">
+      <Button size="default" type="info" class="button-help" @click="dialogVisible = true">
         快速选择用户（测试功能）
-      </el-button>
+      </Button>
     </div>
-    <el-dialog
+    <Dialog
       title="快速选择用户"
       :visible.sync="dialogVisible"
       width="400px">
-      <el-row :gutter="10" style="margin: -20px 0px -10px 0px;">
-        <el-col v-for="(user, index) in users" :key="index" :span="8">
+      <Row :gutter="10" style="margin: -20px 0px -10px 0px;">
+        <ElCol v-for="(user, index) in users" :key="index" :span="8">
           <div class="user-btn" @click="handleUserBtnClick(user)">
             <d2-icon name="user-circle-o"/>
             <span>{{user.name}}</span>
           </div>
-        </el-col>
-      </el-row>
-    </el-dialog>
+        </ElCol>
+      </Row>
+    </Dialog>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
 require('particles.js')
+import { Card, Form, FormItem, Input, Button, Dialog, Row, Col } from 'element-ui'
 import config from './config/nasa'
 import { mapActions } from 'vuex'
 export default {
+  components: {
+    Card,
+    Form,
+    FormItem,
+    'ElInput': Input,
+    Button,
+    Dialog,
+    Row,
+    'ElCol': Col
+  },
   data () {
     return {
       // 快速选择用户

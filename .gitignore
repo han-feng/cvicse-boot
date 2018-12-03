@@ -2,6 +2,7 @@
 node_modules/
 target/
 logs/
+dist/
 
 .svn/
 .idea/

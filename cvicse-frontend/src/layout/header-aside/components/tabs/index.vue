@@ -10,7 +10,7 @@
             :menulist="tagName === '/index' ? contextmenuListIndex : contextmenuList"
             @rowClick="contextmenuClick"/>
         </d2-contextmenu>
-        <el-tabs
+        <Tabs
           class="d2-multiple-page-control"
           :value="current"
           type="card"
@@ -18,50 +18,56 @@
           @tab-click="handleClick"
           @edit="handleTabsEdit"
           @contextmenu.native="handleContextmenu">
-          <el-tab-pane
+          <TabPane
             v-for="page in opened"
             :key="page.fullPath"
             :label="page.meta.title || '未命名'"
             :name="page.fullPath"/>
-        </el-tabs>
+        </Tabs>
       </div>
     </div>
     <div
       class="d2-multiple-page-control-btn"
       flex-box="0">
-      <el-dropdown
+      <Dropdown
         size="default"
         split-button
         @click="handleControlBtnClick"
         @command="command => handleControlItemClick(command)">
         <d2-icon name="times-circle"/>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="left">
+        <DropdownMenu slot="dropdown">
+          <DropdownItem command="left">
             <d2-icon name="arrow-left" class="d2-mr-10"/>
             关闭左侧
-          </el-dropdown-item>
-          <el-dropdown-item command="right">
+          </DropdownItem>
+          <DropdownItem command="right">
             <d2-icon name="arrow-right" class="d2-mr-10"/>
             关闭右侧
-          </el-dropdown-item>
-          <el-dropdown-item command="other">
+          </DropdownItem>
+          <DropdownItem command="other">
             <d2-icon name="times" class="d2-mr-10"/>
             关闭其它
-          </el-dropdown-item>
-          <el-dropdown-item command="all">
+          </DropdownItem>
+          <DropdownItem command="all">
             <d2-icon name="times-circle" class="d2-mr-10"/>
             全部关闭
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
     </div>
   </div>
 </template>
 
 <script>
+import { Tabs, TabPane, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
 import { mapState, mapActions } from 'vuex'
 export default {
   components: {
+    Tabs,
+    TabPane,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
     D2Contextmenu: () => import('../contextmenu'),
     D2ContextmenuList: () => import('../contextmenu/components/contentmenuList')
   },
@@ -103,8 +109,8 @@ export default {
       let target = event.target
       // 解决 https://github.com/d2-projects/d2-admin/issues/54
       let flag = false
-      if (target.className.indexOf('el-tabs__item') > -1) flag = true
-      else if (target.parentNode.className.indexOf('el-tabs__item') > -1) {
+      if (target.className.indexOf('Tabs__item') > -1) flag = true
+      else if (target.parentNode.className.indexOf('Tabs__item') > -1) {
         target = target.parentNode
         flag = true
       }

@@ -1,5 +1,5 @@
 // Element
-import ElementUI from 'element-ui'
+// import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // flex 布局库
 import 'flex.css'
@@ -23,7 +23,8 @@ export default {
     // 当前的 baseUrl
     Vue.prototype.$baseUrl = process.env.BASE_URL
     // Element
-    Vue.use(ElementUI)
+    // Vue.use(ElementUI)
+
     // 插件
     Vue.use(pluginError)
     Vue.use(pluginExport)

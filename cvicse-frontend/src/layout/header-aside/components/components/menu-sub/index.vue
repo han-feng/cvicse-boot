@@ -1,5 +1,5 @@
 <template>
-  <el-submenu :index="menu.path || uniqueId">
+  <Submenu :index="menu.path || uniqueId">
     <template slot="title">
       <i v-if="menu.icon" :class="`fa fa-${menu.icon}`"></i>
       <i v-if="menu.icon === undefined & !menu.iconSvg" class="fa fa-folder-o"></i>
@@ -10,17 +10,19 @@
       <d2-layout-header-aside-menu-item v-if="child.children === undefined" :menu="child" :key="childIndex"/>
       <d2-layout-header-aside-menu-sub v-else :menu="child" :key="childIndex"/>
     </template>
-  </el-submenu>
+  </Submenu>
 </template>
 
 <script>
 import { uniqueId } from 'lodash'
+import { Submenu } from 'element-ui'
 // 组件
 import d2LayoutMainMenuItem from '../menu-item'
 
 export default {
   name: 'd2-layout-header-aside-menu-sub',
   components: {
+    Submenu,
     'd2-layout-header-aside-menu-item': d2LayoutMainMenuItem
   },
   props: {

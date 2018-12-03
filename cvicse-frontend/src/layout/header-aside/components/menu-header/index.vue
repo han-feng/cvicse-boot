@@ -2,12 +2,12 @@
   <div class="d2-theme-header-menu" ref="page" :class="{'is-scrollable': isScroll}" flex="cross:center">
     <div class="d2-theme-header-menu__content" ref="content" flex-box="1" flex>
       <div class="d2-theme-header-menu__scroll" ref="scroll" flex-box="0" :style="'transform: translateX(' + currentTranslateX + 'px);'">
-        <el-menu mode="horizontal" :default-active="active" @select="handleMenuSelect">
+        <Menu mode="horizontal" :default-active="active" @select="handleMenuSelect">
           <template v-for="(menu, menuIndex) in header">
             <d2-layout-header-aside-menu-item v-if="menu.children === undefined" :menu="menu" :key="menuIndex"/>
             <d2-layout-header-aside-menu-sub v-else :menu="menu" :key="menuIndex"/>
           </template>
-        </el-menu>
+        </Menu>
       </div>
     </div>
     <div v-if="isScroll" class="d2-theme-header-menu__prev" flex-box="0" @click="scroll('left')" flex="main:center cross:center">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { Menu } from 'element-ui'
 import { throttle } from 'lodash'
 import { mapState } from 'vuex'
 import menuMixin from '../mixin/menu'
@@ -31,6 +32,7 @@ export default {
     menuMixin
   ],
   components: {
+    Menu,
     'd2-layout-header-aside-menu-item': d2LayoutMainMenuItem,
     'd2-layout-header-aside-menu-sub': d2LayoutMainMenuSub
   },
