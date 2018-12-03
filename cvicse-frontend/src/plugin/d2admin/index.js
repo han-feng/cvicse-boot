@@ -1,6 +1,6 @@
-// Element
-// import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// Element MessageBox
+import { Message, MessageBox } from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 // flex 布局库
 import 'flex.css'
 // 组件
@@ -22,8 +22,8 @@ export default {
     Vue.prototype.$env = process.env.NODE_ENV
     // 当前的 baseUrl
     Vue.prototype.$baseUrl = process.env.BASE_URL
-    // Element
-    // Vue.use(ElementUI)
+    Vue.prototype.$message = Message
+    Vue.prototype.$confirm = MessageBox.confirm
 
     // 插件
     Vue.use(pluginError)
