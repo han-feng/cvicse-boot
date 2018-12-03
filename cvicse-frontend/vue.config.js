@@ -100,18 +100,12 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
 
-    // babel-polyfill 加入 entry
-    const entry = config.entry('app')
-    entry
-      .add('babel-polyfill')
-      .end()
-
     // 判断环境加入模拟数据
     if (process.env.VUE_APP_BUILD_MODE !== 'nomock') {
-      entry
+      config
+        .entry('app')
         .add('@/mock')
         .end()
     }
   }
-
 }
