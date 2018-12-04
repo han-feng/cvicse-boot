@@ -1,4 +1,5 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const TerserPlugin = require('terser-webpack-plugin')
 
 // 拼接路径
 const resolve = dir => require('path').join(__dirname, dir)
@@ -41,12 +42,15 @@ module.exports = {
             args[0].minify.minifyCSS = true
             return args
           })
+
         config.optimization
           .minimizer([
-            new UglifyJsPlugin({
-              uglifyOptions: {
+            new TerserPlugin({
+              cache: true,
+              parallel: true,
+              terserOptions: {
                 // 移除 console
-                // 其它优化选项 https://segmentfault.com/a/1190000010874406
+                // 参考 https://github.com/webpack-contrib/terser-webpack-plugin
                 compress: {
                   warnings: false,
                   drop_console: true,
@@ -107,5 +111,10 @@ module.exports = {
         .add('@/mock')
         .end()
     }
+  },
+  configureWebpack: {
+    plugins: [
+      // new BundleAnalyzerPlugin()
+    ]
   }
 }

@@ -2,15 +2,20 @@
   <div class="page">
     <p class="page_title">{{code}} {{info.message}}</p>
     {{info.path}}
-    <el-button class="d2-mt" @click="$router.replace({ path: '/' })">
+    <Button class="d2-mt" @click="$router.replace({ path: '/' })">
       返回首页
-    </el-button>
+    </Button>
   </div>
 </template>
 
 <script>
+import { Button } from 'element-ui'
+
 export default {
   name: '',
+  components: {
+    Button
+  },
   props: {
     code: {
       type: Number,

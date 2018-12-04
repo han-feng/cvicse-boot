@@ -1,6 +1,5 @@
 // Element MessageBox
 import { Message, MessageBox } from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
 // flex 布局库
 import 'flex.css'
 // 组件
@@ -9,8 +8,6 @@ import '@/components'
 import '@/assets/svg-icons'
 // 功能插件
 import pluginError from '@/plugin/error'
-import pluginExport from '@/plugin/export'
-import pluginImport from '@/plugin/import'
 import pluginLog from '@/plugin/log'
 import pluginOpen from '@/plugin/open'
 
@@ -27,8 +24,6 @@ export default {
 
     // 插件
     Vue.use(pluginError)
-    Vue.use(pluginExport)
-    Vue.use(pluginImport)
     Vue.use(pluginLog)
     Vue.use(pluginOpen)
   }
