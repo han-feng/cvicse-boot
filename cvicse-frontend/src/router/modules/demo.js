@@ -1,14 +1,20 @@
 import layoutHeaderAside from '@/layout/header-aside'
 
-const meta = { requiresAuth: 'check' }
+const meta = { cache: true, auth: 'check' }
 
 export default {
   path: '/demo',
   name: 'demo',
   meta,
-  redirect: { name: 'demo-page1' },
+  redirect: { name: 'demo-auth' },
   component: layoutHeaderAside,
   children: (pre => [
+    {
+      path: 'auth',
+      name: `${pre}auth`,
+      component: () => import('@/pages/demo/auth'),
+      meta: { ...meta, title: '权限测试' }
+    },
     {
       path: 'page1',
       name: `${pre}page1`,

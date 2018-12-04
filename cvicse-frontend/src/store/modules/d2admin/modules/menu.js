@@ -71,21 +71,13 @@ export default {
   },
   mutations: {
     /**
-     * @description 设置顶栏菜单
+     * @description 设置菜单
      * @param {Object} state vuex state
      * @param {Array} menu menu setting
      */
-    headerSet (state, menu) {
+    set (state, menu) {
       // store 赋值
-      state.header = menu
-    },
-    /**
-     * @description 设置侧边栏菜单
-     * @param {Object} state vuex state
-     * @param {Array} menu menu setting
-     */
-    asideSet (state, menu) {
-      // store 赋值
+      // state.header = menu
       state.aside = menu
     }
   }

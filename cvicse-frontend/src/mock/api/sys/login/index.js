@@ -8,6 +8,7 @@ const userDB = [
     uuid: 'admin-uuid',
     name: '管理员',
     permissions: [
+      '/demo/auth',
       '/demo/page1',
       '/demo/page2',
       '/demo/page3',
@@ -22,6 +23,7 @@ const userDB = [
     uuid: 'editor-uuid',
     name: '编辑',
     permissions: [
+      '/demo/auth',
       '/demo/page1',
       '/demo/page2',
       '/demo/test1',
@@ -34,6 +36,7 @@ const userDB = [
     uuid: 'user1-uuid',
     name: '用户1',
     permissions: [
+      '/demo/auth',
       '/demo/page1',
       '/demo/test1'
     ]
