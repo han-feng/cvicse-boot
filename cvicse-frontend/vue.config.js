@@ -52,7 +52,7 @@ module.exports = {
                 // 移除 console
                 // 参考 https://github.com/webpack-contrib/terser-webpack-plugin
                 compress: {
-                  warnings: false,
+                  // warnings: false,
                   drop_console: true,
                   drop_debugger: true,
                   pure_funcs: ['console.log']
