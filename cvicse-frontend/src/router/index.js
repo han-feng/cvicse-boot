@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import store from '@/store/index'
+import store from '@/store'
 
 import util from '@/libs/util.js'
 import { checkPermission } from '@/libs/auth.js'
@@ -43,8 +43,7 @@ router.beforeEach((to, from, next) => {
     // 验证当前路由所有的匹配中是否需要有登录验证的
     // 这里暂时将cookie里是否存有token作为验证是否登录的条件
     // 请根据自身业务需要修改
-    const token = util.cookies.get('token')
-    if (token && token !== 'undefined') {
+    if (store.getters['session/isLogin']) {
       // 已登录，则进行许可检查
       if (
         !to.matched.some(r => r.meta.auth === 'check') ||

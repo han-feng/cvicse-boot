@@ -1,5 +1,5 @@
 import db from '@/libs/db.js'
-import util from '@/libs/util.js'
+import store from '@/store'
 import { cloneDeep } from 'lodash'
 
 /**
@@ -18,7 +18,7 @@ function pathInit ({
   validator = () => true,
   defaultValue = ''
 }) {
-  const uuid = util.cookies.get('uuid') || 'ghost-uuid'
+  const uuid = store.state.session.uuid || 'guest-uuid'
   const currentPath = `${dbName}.${user ? `user.${uuid}` : 'public'}${path ? `.${path}` : ''}`
   const value = db.get(currentPath).value()
   // console.group('pathInit')

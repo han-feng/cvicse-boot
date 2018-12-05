@@ -11,22 +11,22 @@
         <Card>
           <Form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
             <FormItem  prop="username">
-              <ElInput type="text" v-model="formLogin.username" placeholder="用户名">
+              <Input type="text" v-model="formLogin.username" placeholder="用户名">
                 <i slot="prepend" class="fa fa-user-circle-o"></i>
-              </ElInput>
+              </Input>
             </FormItem>
             <FormItem prop="password">
-              <ElInput type="password" v-model="formLogin.password" placeholder="密码">
+              <Input type="password" v-model="formLogin.password" placeholder="密码">
                 <i slot="prepend" class="fa fa-keyboard-o"></i>
-              </ElInput>
+              </Input>
             </FormItem>
             <FormItem prop="code" v-if="requiredInputCode">
-              <ElInput type="text" v-model="formLogin.code" placeholder="- - - -">
+              <Input type="text" v-model="formLogin.code" placeholder="- - - -">
                 <template slot="prepend">验证码</template>
                 <template slot="append">
                   <img class="login-code" src="./image/login-code.png">
                 </template>
-              </ElInput>
+              </Input>
             </FormItem>
             <Button size="default" @click="submit" type="primary" class="button-login">登录</Button>
           </Form>
@@ -42,12 +42,12 @@
       :visible.sync="dialogVisible"
       width="400px">
       <Row :gutter="10" style="margin: -20px 0px -10px 0px;">
-        <ElCol v-for="(user, index) in users" :key="index" :span="8">
+        <Col v-for="(user, index) in users" :key="index" :span="8">
           <div class="user-btn" @click="handleUserBtnClick(user)">
             <d2-icon name="user-circle-o"/>
             <span>{{user.name}}</span>
           </div>
-        </ElCol>
+        </Col>
       </Row>
     </Dialog>
   </div>
@@ -64,11 +64,11 @@ export default {
     Card,
     Form,
     FormItem,
-    'ElInput': Input,
+    Input,
     Button,
     Dialog,
     Row,
-    'ElCol': Col
+    Col
   },
   data () {
     return {

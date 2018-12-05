@@ -1,4 +1,4 @@
-import store from '@/store/index'
+import store from '@/store'
 
 export function checkPermission (...uris) {
   const permissions = store.state.session.user.permissions

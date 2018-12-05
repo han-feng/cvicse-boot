@@ -2,7 +2,7 @@
   <d2-container>
     <h1 class="d2-mt-0">权限测试</h1>
     <Row :gutter="10">
-      <ElCol :span="8">
+      <Col :span="8">
         <Card shadow="hover">
           <div slot="header" class="clearfix">
             <span>已授权</span>
@@ -12,8 +12,8 @@
             <Tag>{{p}}</Tag>
           </div>
         </Card>
-      </ElCol>
-      <ElCol :span="8">
+      </Col>
+      <Col :span="8">
         <Card shadow="hover">
           <div slot="header" class="clearfix">
             <span>有权访问内容</span>
@@ -25,8 +25,8 @@
             <Tag type="success" v-if="checkPermission(i)">{{i}}</Tag>
           </div>
         </Card>
-      </ElCol>
-      <ElCol :span="8">
+      </Col>
+      <Col :span="8">
         <Card shadow="hover">
           <div slot="header" class="clearfix">
             <span>无权访问内容</span>
@@ -38,7 +38,7 @@
             <Tag type="danger" v-if="!checkPermission(i)">{{i}}</Tag>
           </div>
         </Card>
-      </ElCol>
+      </Col>
     </Row>
   </d2-container>
 </template>
@@ -54,7 +54,7 @@ export default {
     Card,
     Row,
     Tag,
-    'ElCol': Col
+    Col
   },
   data () {
     return {
