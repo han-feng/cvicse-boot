@@ -8,7 +8,7 @@ logging: # 日志配置
     file: '%d [%c{1}] %-5p %m%n'
 
 server:
-  compression: # GZip 压缩配置
+  compression: # GZip压缩配置
     enabled: true
     min-response-size: 2048
     mime-types:
@@ -26,10 +26,10 @@ server:
 management:
   endpoints:
     web:
-      exposure:
+      exposure: # 配置Actuator接入点暴露
         include: '*'
 
 spring:
   output:
-    ansi:
-      enabled: ALWAYS   # NEVER, DETECT, ALWAYS
+    ansi: # 控制台ANSI-colored输出
+      enabled: DETECT   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
