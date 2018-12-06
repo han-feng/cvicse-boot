@@ -30,6 +30,8 @@ management:
         include: '*'
 
 spring:
+  application:
+    name: cvicse-boot
   output:
     ansi: # 控制台ANSI-colored输出
       enabled: DETECT   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
