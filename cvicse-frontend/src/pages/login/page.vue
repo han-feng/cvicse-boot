@@ -122,8 +122,9 @@ export default {
     // 销毁 particlesJS
     // thanks https://github.com/d2-projects/d2-admin/issues/65
     // ref https://github.com/VincentGarreau/particles.js/issues/63
-    if (window['pJSDom'] && window['pJSDom'].length > 0) {
-      for (let i = 0; i < window['pJSDom'].length; i++) {
+    if (window['pJSDom'] && window['pJSDom'].length) {
+      let len = window['pJSDom'].length
+      for (let i = 0; i < len; i++) {
         window['pJSDom'][i].pJS.fn.vendors.destroypJS()
       }
       window['pJSDom'] = []
