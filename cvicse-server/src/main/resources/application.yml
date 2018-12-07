@@ -1,3 +1,21 @@
+spring:
+  application:
+    name: cvicse-boot
+  output:
+    ansi: # 控制台ANSI-colored输出
+      enabled: DETECT   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
+
+application: # 应用自定义配置
+  url-prefix:
+    rest: /api
+    docs: /docs
+
+management:
+  endpoints:
+    web:
+      exposure: # 配置Actuator接入点暴露
+        include: '*'
+
 logging: # 日志配置
   file: 'logs/app.log'
   level:
@@ -8,6 +26,7 @@ logging: # 日志配置
     file: '%d [%c{1}] %-5p %m%n'
 
 server:
+  port: 8081
   compression: # GZip压缩配置
     enabled: true
     min-response-size: 2048
@@ -22,16 +41,3 @@ server:
       - text/xml
       - text/plain
       - image/svg+xml
-
-management:
-  endpoints:
-    web:
-      exposure: # 配置Actuator接入点暴露
-        include: '*'
-
-spring:
-  application:
-    name: cvicse-boot
-  output:
-    ansi: # 控制台ANSI-colored输出
-      enabled: DETECT   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
