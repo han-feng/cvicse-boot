@@ -16,6 +16,13 @@ export default {
       meta: { ...meta, title: '权限测试' }
     },
     {
+      path: 'params/:id',
+      name: `${pre}params`,
+      props: true,
+      component: () => import('@/pages/demo/params'),
+      meta: { ...meta, title: '参数路由', auth: true }
+    },
+    {
       path: 'page1',
       name: `${pre}page1`,
       component: () => import('@/pages/demo/page1'),

@@ -39,16 +39,10 @@ router.beforeEach((to, from, next) => {
       // https://github.com/d2-projects/d2-admin/issues/138
       NProgress.done()
     }
-  } else if (to.matched.some(r => r.meta.auth)) {
-    // 验证当前路由所有的匹配中是否需要有登录验证的
-    // 这里暂时将cookie里是否存有token作为验证是否登录的条件
-    // 请根据自身业务需要修改
+  } else if (to.meta.auth) {
     if (store.getters['session/isLogin']) {
       // 已登录，则进行许可检查
-      if (
-        !to.matched.some(r => r.meta.auth === 'check') ||
-        checkPermission(to.fullPath)
-      ) {
+      if (to.meta.auth !== 'check' || checkPermission(to.fullPath)) {
         next()
       } else {
         // 无权访问时显示提示信息
