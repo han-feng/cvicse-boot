@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
       NProgress.done()
     }
   } else if (to.meta.auth) {
-    if (store.getters['session/isLogin']) {
+    if (store.getters['session/loggedIn']) {
       // 已登录，则进行许可检查
       if (to.meta.auth !== 'check' || checkPermission(to.fullPath)) {
         next()

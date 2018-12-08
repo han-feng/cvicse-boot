@@ -18,7 +18,7 @@ export default {
     token: ''
   },
   getters: {
-    isLogin (state) {
+    loggedIn (state) {
       return state.token !== ''
     }
   },

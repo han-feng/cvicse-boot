@@ -11,13 +11,13 @@
 
 <script>
 import { Input } from 'element-ui'
-import BasePage from '@/mixins/BasePage'
+import Page from '@/mixins/BasePage'
 /**
  * 带参路由多组参数使用同一个组件实例，需要在组件内部对多个参数的情况进行统一处理
  */
 export default {
   name: 'demo-params',
-  mixins: [ BasePage ], // 这是实现本功能的核心代码，就这一行
+  mixins: [ Page ], // 这是实现本功能的核心代码，就这一行
   components: {
     Input
   },
