@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="logLength > 0">
     <Tooltip
       effect="dark"
       :content="tooltipContent"
@@ -9,7 +9,6 @@
         type="text"
         @click="handleClick">
         <Badge
-          v-if="logLength > 0"
           :max="99"
           :value="logLengthError"
           :is-dot="logLengthError === 0">
@@ -17,10 +16,10 @@
             :name="logLengthError === 0 ? 'dot-circle-o' : 'bug'"
             style="font-size: 20px"/>
         </Badge>
-        <d2-icon
+        <!-- <d2-icon
           v-else
           name="dot-circle-o"
-          style="font-size: 20px"/>
+          style="font-size: 20px"/> -->
       </Button>
     </Tooltip>
     <Dialog

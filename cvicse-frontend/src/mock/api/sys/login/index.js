@@ -44,8 +44,9 @@ const userDB = [
 ]
 
 let errorCount = 0
+const baseUrl = `${process.env.VUE_APP_API}`
 
-Mock.mock('/api/login', 'post', ({ url, type, body }) => {
+Mock.mock(baseUrl + 'login', 'post', ({ url, type, body }) => {
   const bodyObj = Qs.parse(body)
   const user = userDB.find(e => e.username === bodyObj.username && e.password === bodyObj.password)
   if (user) {
