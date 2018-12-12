@@ -3,7 +3,7 @@ spring:
     name: cvicse-boot
   output:
     ansi: # 控制台ANSI-colored输出
-      enabled: DETECT   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
+      enabled: ALWAYS   # NEVER 禁用（默认值）, DETECT 自动探测, ALWAYS 总是启用
 
 application: # 应用自定义配置
   url-prefix:
