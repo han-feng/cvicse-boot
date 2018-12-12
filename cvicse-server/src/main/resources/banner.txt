@@ -1,7 +1,7 @@
-${AnsiColor.BRIGHT_BLUE}       _______  ______
-${AnsiColor.BRIGHT_BLUE}      /      / /     /       ${AnsiColor.BRIGHT_WHITE} _____________   ____.____________   ____________________
-${AnsiColor.BRIGHT_BLUE}     /     _/_/     / ______ ${AnsiColor.BRIGHT_WHITE} \_   ___ \   \ /   /|   \_   ___ \ /   _____/\_   _____/
-${AnsiColor.BRIGHT_BLUE}    /     / /      / /     / ${AnsiColor.BRIGHT_WHITE} /    \  \/\   Y   / |   /    \  \/ \_____  \  |    __)_
-${AnsiColor.BRIGHT_BLUE}   /_____/ /     _/_/     /  ${AnsiColor.BRIGHT_WHITE} \     \____\     /  |   \     \____/        \ |        \
-${AnsiColor.BRIGHT_BLUE}          /     / /      /   ${AnsiColor.BRIGHT_WHITE}  \______  / \___/   |___|\______  /_______  //_________/
-${AnsiColor.BRIGHT_BLUE}         /_____/ /______/    ${AnsiColor.BRIGHT_WHITE}         \/                      \/        \/    ${AnsiColor.BRIGHT_YELLOW}${application.version}${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}       _______  ______
+${AnsiColor.BLUE}      /      / /     /       ${AnsiColor.WHITE} _____________   ____.____________   ____________________
+${AnsiColor.BLUE}     /     _/_/     / ______ ${AnsiColor.WHITE} \_   ___ \   \ /   /|   \_   ___ \ /   _____/\_   _____/
+${AnsiColor.BLUE}    /     / /      / /     / ${AnsiColor.WHITE} /    \  \/\   Y   / |   /    \  \/ \_____  \  |    __)_
+${AnsiColor.BLUE}   /_____/ /     _/_/     /  ${AnsiColor.WHITE} \     \____\     /  |   \     \____/        \ |        \
+${AnsiColor.BLUE}          /     / /      /   ${AnsiColor.WHITE}  \______  / \___/   |___|\______  /_______  //_________/
+${AnsiColor.BLUE}         /_____/ /______/    ${AnsiColor.WHITE}         \/                      \/        \/    ${AnsiColor.YELLOW}${application.version}${AnsiColor.DEFAULT}
