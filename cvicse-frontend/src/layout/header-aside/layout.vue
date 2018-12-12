@@ -81,10 +81,12 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
+import PageManager from '@/mixins/BasePageManager'
 import mixinSearch from './mixins/search'
 export default {
   name: 'd2-layout-header-aside',
   mixins: [
+    PageManager,
     mixinSearch
   ],
   components: {

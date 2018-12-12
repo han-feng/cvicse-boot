@@ -4,7 +4,7 @@ import { get } from 'lodash'
 import setting from '@/setting.js'
 
 // 判定是否需要缓存
-const isKeepAlive = data => get(data, 'meta.cache', false)
+const isKeepAlive = data => get(data, 'meta.cache', true)
 
 export default {
   namespaced: true,
