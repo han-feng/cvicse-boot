@@ -2,7 +2,7 @@ import demo from './modules/demo'
 
 import layoutHeaderAside from '@/layout/header-aside'
 
-const meta = { cache: true, auth: true }
+const meta = { auth: true }
 
 /**
  * 在主框架内显示
