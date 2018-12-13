@@ -8,6 +8,7 @@ class PageManager {
     this.componentName = vm.$options.name
     if (!this.componentName) {
       util.log.danger('PageManager 对应组件必须具有有效的 name ！')
+      console.log(vm.$options)
     }
     this.route = null // 管理器组件对应的路由信息 √
     this.childrenRoute = [] // 所有子页面路由对象集合（在route基础上补充componentName）
@@ -23,6 +24,11 @@ class PageManager {
       const route = to.matched.find(r => r.instances.default.$options.name === this.componentName)
       if (route) {
         this.route = route
+        if (!route.name) {
+          let { path, params, query, fullPath } = route
+          util.log.danger(`组件“${this.componentName}”对应的路由${JSON.stringify({ path, params, query, fullPath })}没有定义 name ！`)
+          console.log(route)
+        }
       }
     }
     // 目标页面信息
