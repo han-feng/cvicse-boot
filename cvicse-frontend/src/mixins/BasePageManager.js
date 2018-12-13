@@ -1,3 +1,4 @@
+import util from '@/libs/util'
 /**
  * 多页面管理器，能够管理多个子页面，通过router-view显示子页面，通过tabs操作子页面
  */
@@ -6,7 +7,7 @@ class PageManager {
     this.vm = vm
     this.componentName = vm.$options.name
     if (!this.componentName) {
-      console.error('PageManager 对应组件必须具有有效的 name ！')
+      util.log.danger('PageManager 对应组件必须具有有效的 name ！')
     }
     this.route = null // 管理器组件对应的路由信息 √
     this.childrenRoute = [] // 所有子页面路由对象集合（在route基础上补充componentName）

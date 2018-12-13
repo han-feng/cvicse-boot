@@ -49,7 +49,7 @@ service.interceptors.request.use(
   },
   error => {
     // 发送失败
-    console.log(error)
+    util.log.danger(error)
     Promise.reject(error)
   }
 )

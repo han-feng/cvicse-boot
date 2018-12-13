@@ -113,8 +113,11 @@ module.exports = {
     }
   },
   configureWebpack: {
-    plugins: [
-      // new BundleAnalyzerPlugin()
-    ]
+    // plugins: [
+    // new BundleAnalyzerPlugin()
+    // ],
+    externals: {
+      logger: 'console'
+    }
   }
 }
