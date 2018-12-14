@@ -1,5 +1,6 @@
 // 设置文件
 import setting from '@/setting.js'
+import { uniqueId } from 'lodash'
 
 export default {
   namespaced: true,
@@ -71,13 +72,27 @@ export default {
   },
   mutations: {
     /**
-     * @description 设置菜单
+     * @description 设置顶栏菜单
      * @param {Object} state vuex state
      * @param {Array} menu menu setting
      */
-    set (state, menu) {
+    headerSet (state, menu) {
       // store 赋值
-      // state.header = menu
+      menu.forEach(item => {
+        if (item.children !== undefined) {
+          item.path = uniqueId('header-menu-')
+          item.children.parent = item.path
+        }
+      })
+      state.header = menu
+    },
+    /**
+     * @description 设置侧边栏菜单
+     * @param {Object} state vuex state
+     * @param {Array} menu menu setting
+     */
+    asideSet (state, menu) {
+      // store 赋值
       state.aside = menu
     }
   }
