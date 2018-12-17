@@ -1,5 +1,5 @@
 // Element MessageBox
-import { Message, MessageBox } from 'element-ui'
+import { Message, MessageBox, Notification, Loading } from 'element-ui'
 // flex 布局库
 import 'flex.css'
 // 组件
@@ -18,6 +18,13 @@ export default {
     // 设置为 false 以阻止 vue 在启动时生成生产提示
     // https://cn.vuejs.org/v2/api/#productionTip
     Vue.config.productionTip = false
+    // 过滤器 日期模块
+    Vue.use(d2VueFiltersDate)
+    // 插件
+    Vue.use(pluginError)
+    Vue.use(pluginLog)
+    Vue.use(pluginOpen)
+    Vue.use(Loading.directive)
     // 当前环境
     Vue.prototype.$env = process.env.NODE_ENV
     // 当前的 baseUrl
@@ -26,13 +33,13 @@ export default {
     Vue.prototype.$version = process.env.VUE_APP_VERSION
     // 构建时间
     Vue.prototype.$buildTime = process.env.VUE_APP_BUILD_TIME
-    Vue.prototype.$message = Message
+
+    Vue.prototype.$loading = Loading.service
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm
-    // 过滤器 日期模块
-    Vue.use(d2VueFiltersDate)
-    // 插件
-    Vue.use(pluginError)
-    Vue.use(pluginLog)
-    Vue.use(pluginOpen)
+    Vue.prototype.$prompt = MessageBox.prompt
+    Vue.prototype.$notify = Notification
+    Vue.prototype.$message = Message
   }
 }
