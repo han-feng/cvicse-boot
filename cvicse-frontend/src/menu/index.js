@@ -5,7 +5,16 @@ export default [
     icon: 'flask',
     children: [
       // { path: '/index', title: '首页', icon: 'home' },
-      { path: '/demo/auth', title: '权限演示', icon: 'universal-access' },
+      {
+        title: '权限演示',
+        icon: 'universal-access',
+        children: [
+          { path: '/demo/auth', title: '查看权限', icon: 'street-view' },
+          { path: '/demo/page1', title: '页面 1' },
+          { path: '/demo/page2', title: '页面 2' },
+          { path: '/demo/page3', title: '页面 3' }
+        ]
+      },
       {
         title: '参数路由',
         icon: 'sitemap',

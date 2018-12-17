@@ -13,7 +13,7 @@ export default {
       path: 'auth',
       name: `${pre}auth`,
       component: () => import('@/pages/demo/auth'),
-      meta: { ...meta, title: '权限测试' }
+      meta: { ...meta, title: '查看权限' }
     },
     {
       path: 'params/:id',

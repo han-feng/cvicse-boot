@@ -1,11 +1,11 @@
 import util from '@/libs/util.js'
-import setting from '@/setting.js'
 
 export default {
   namespaced: true,
   state: {
-    name: setting.releases.name,
-    version: setting.releases.version
+    name: process.env.VUE_APP_NAME,
+    version: process.env.VUE_APP_VERSION,
+    buildTime: process.env.VUE_APP_BUILD_TIME
   },
   mutations: {
     /**

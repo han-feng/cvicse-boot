@@ -1,21 +1,14 @@
-/**
- * The file enables `@/store/index.js` to import all vuex modules
- * in a one-shot manner. There should not be any reason to edit this file.
- */
-
-const files = require.context('./modules', false, /\.js$/)
-const modules = {}
-
-files.keys().forEach(key => {
-  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
-})
+import setting from '@/setting.js'
 
 export default {
   namespaced: true,
-  modules,
   state: {
     uuid: '',
-    token: ''
+    token: '',
+    user: {
+      name: setting.user.info.name,
+      permissions: []
+    }
   },
   getters: {
     loggedIn (state) {
@@ -40,10 +33,23 @@ export default {
       state.token = token
     },
     /**
-     * @description 清除登录信息
+     * @description 设置用户数据
+     * @param {Object} state vuex state
+     * @param {*} user user
+     */
+    setUser (state, user) {
+      // store 赋值
+      state.user.name = user.name
+      state.user.permissions = user.permissions
+    },
+    /**
+     * @description 重置用户数据
      * @param {Object} state vuex state
      */
-    clean (state) {
+    reset (state) {
+      // store 赋值
+      state.user.name = setting.user.info.name
+      state.user.permissions = []
       state.uuid = ''
       state.token = ''
     }

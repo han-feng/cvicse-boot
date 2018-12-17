@@ -1,4 +1,4 @@
-import { AccountLogin } from '@/api/sys/login'
+import { AccountLogin } from '@api/sys.login'
 
 export default {
   namespaced: true,
@@ -31,7 +31,7 @@ export default {
             commit('session/setUuid', res.uuid, { root: true })
             commit('session/setToken', res.token, { root: true })
             // 设置 vuex 用户信息
-            await dispatch('session/user/set', {
+            commit('session/setUser', {
               name: res.name,
               permissions: res.permissions
             }, { root: true })
@@ -58,15 +58,13 @@ export default {
      * @param {Object} param vm {Object} vue 实例
      * @param {Object} param confirm {Boolean} 是否需要确认
      */
-    logout ({ dispatch, commit }, { vm, confirm = false }) {
+    logout ({ commit }, { vm, confirm = false }) {
       /**
        * @description 注销
        */
       function logout () {
-        // 删除token
-        commit('session/clean', null, { root: true })
-        // 重置用户信息
-        dispatch('session/user/reset', null, { root: true })
+        // 重置会话信息
+        commit('session/reset', null, { root: true })
         // 跳转路由
         vm.$router.push({
           name: 'login'

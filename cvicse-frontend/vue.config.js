@@ -1,8 +1,14 @@
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const TerserPlugin = require('terser-webpack-plugin')
+const PackageConfig = require('./package.json')
 
 // 拼接路径
 const resolve = dir => require('path').join(__dirname, dir)
+
+// 增加环境变量
+process.env.VUE_APP_NAME = PackageConfig.name
+process.env.VUE_APP_VERSION = PackageConfig.version
+process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYYY-M-D HH:mm:ss')
 
 module.exports = {
   baseUrl: '', // 使用相对路径可以满足大多数情况需求，如遇特殊情况满足不了请调整该值，请参考Vue Cli文档中关于“相对 baseUrl 的限制”：https://cli.vuejs.org/zh/config/#baseurl
@@ -52,7 +58,6 @@ module.exports = {
                 // 移除 console
                 // 参考 https://github.com/webpack-contrib/terser-webpack-plugin
                 compress: {
-                  warnings: false,
                   drop_console: true,
                   drop_debugger: true,
                   pure_funcs: ['console.log']
@@ -103,6 +108,7 @@ module.exports = {
     // 重新设置 alias
     config.resolve.alias
       .set('@', resolve('src'))
+      .set('@api', resolve('src/api'))
 
     // 判断环境加入模拟数据
     if (process.env.VUE_APP_BUILD_MODE !== 'nomock') {

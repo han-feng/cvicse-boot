@@ -1,6 +1,5 @@
 <template>
   <d2-container>
-    <h1 class="d2-mt-0">权限测试</h1>
     <Row :gutter="10">
       <Col :span="8">
         <Card shadow="hover">
@@ -63,10 +62,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('session/user', [
-      'name',
-      'permissions'
-    ])
+    ...mapState('session', {
+      name: state => state.user.name,
+      permissions: state => state.user.permissions
+    })
   }
 }
 </script>
