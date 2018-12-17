@@ -1,8 +1,8 @@
 <template>
   <d2-container>
-    <Row :gutter="10">
+    <Row type="flex" align="stretch" :gutter="10">
       <Col :span="8">
-        <Card shadow="hover">
+        <Card shadow="hover" style="height:100%">
           <div slot="header" class="clearfix">
             <span>已授权</span>
             <Button style="float: right; padding: 3px 0" type="text">{{name}}</Button>
@@ -13,7 +13,7 @@
         </Card>
       </Col>
       <Col :span="8">
-        <Card shadow="hover">
+        <Card shadow="hover" style="height:100%">
           <div slot="header" class="clearfix">
             <span>有权访问内容</span>
           </div>
@@ -26,7 +26,7 @@
         </Card>
       </Col>
       <Col :span="8">
-        <Card shadow="hover">
+        <Card shadow="hover" style="height:100%">
           <div slot="header" class="clearfix">
             <span>无权访问内容</span>
           </div>
