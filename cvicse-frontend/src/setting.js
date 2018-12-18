@@ -1,5 +1,3 @@
-import { name, version } from '../package'
-
 export default {
   // 快捷键
   // 支持快捷键 例如 ctrl+shift+s
@@ -28,8 +26,9 @@ export default {
   },
   // 版本
   releases: {
-    name,
-    version
+    name: process.env.VUE_APP_NAME,
+    version: process.env.VUE_APP_VERSION,
+    buildTime: process.env.VUE_APP_BUILD_TIME
   },
   // 菜单搜索
   search: {
