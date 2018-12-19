@@ -1,9 +1,9 @@
 <template>
   <d2-container>
     <Row type="flex" align="stretch" :gutter="10">
-      <Col :span="8">
+      <Col :span="6">
         <Card shadow="hover" style="height:100%">
-          <div slot="header" class="clearfix">
+          <div slot="header">
             <span>已授权</span>
             <Button style="float: right; padding: 3px 0" type="text">{{name}}</Button>
           </div>
@@ -12,9 +12,9 @@
           </div>
         </Card>
       </Col>
-      <Col :span="8">
+      <Col :span="6">
         <Card shadow="hover" style="height:100%">
-          <div slot="header" class="clearfix">
+          <div slot="header">
             <span>有权访问内容</span>
           </div>
           <div class="d2-m-5" v-for="p in pages" :key="p">
@@ -25,9 +25,9 @@
           </div>
         </Card>
       </Col>
-      <Col :span="8">
+      <Col :span="6">
         <Card shadow="hover" style="height:100%">
-          <div slot="header" class="clearfix">
+          <div slot="header">
             <span>无权访问内容</span>
           </div>
           <div class="d2-m-5" v-for="p in pages" :key="p">
@@ -35,6 +35,14 @@
           </div>
           <div class="d2-m-5" v-for="i in items" :key="i">
             <Tag type="danger" v-if="!checkPermission(i)">{{i}}</Tag>
+          </div>
+        </Card>
+      </Col>
+      <Col :span="6">
+        <Card shadow="hover" style="height:100%">
+          <div slot="header">
+            <span>匹配算法性能对比</span>
+            <Button style="float: right; padding: 5px" type="success"><d2-icon name="play" />测试</Button>
           </div>
         </Card>
       </Col>
