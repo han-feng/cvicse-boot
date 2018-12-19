@@ -6,7 +6,8 @@
     <mirror>
       <id>central</id>
       <name>central</name>
-      <url>http://127.0.0.1:8888/nexus/content/groups/public/</url>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <!-- <url>http://127.0.0.1:8888/nexus/content/groups/public/</url> -->
       <!-- <url>${user.home}/.m2/repository</url> -->
       <!-- <url>~/.m2/repository</url> -->
       <mirrorOf>*</mirrorOf>
