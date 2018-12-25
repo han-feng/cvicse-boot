@@ -40,6 +40,8 @@ export default {
             }, { root: true })
             // 用户登录后从持久化数据加载一系列的设置
             await dispatch('load')
+            // 重置菜单
+            dispatch('d2admin/menu/set', null, { root: true })
             // 结束
             resolve()
           })

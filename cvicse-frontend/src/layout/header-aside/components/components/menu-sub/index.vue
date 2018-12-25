@@ -1,5 +1,5 @@
 <template>
-  <Submenu :index="menu.path || uniqueId">
+  <Submenu :index="menu.path || uniqueId" v-if="showNoAuth || menu.auth" :disabled="!menu.auth">
     <template slot="title">
       <i v-if="menu.icon" :class="`fa fa-${menu.icon}`"></i>
       <i v-if="menu.icon === undefined & !menu.iconSvg" class="fa fa-folder-o"></i>
@@ -15,8 +15,8 @@
 
 <script>
 import { uniqueId } from 'lodash'
+import { mapState } from 'vuex'
 import { Submenu } from 'element-ui'
-// 组件
 import d2LayoutMainMenuItem from '../menu-item'
 
 export default {
@@ -36,6 +36,9 @@ export default {
     return {
       uniqueId: uniqueId('d2-menu-empty-')
     }
+  },
+  computed: {
+    ...mapState('d2admin/menu', ['showNoAuth'])
   }
 }
 </script>

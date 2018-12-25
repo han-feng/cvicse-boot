@@ -4,8 +4,8 @@
       <Col :span="6">
         <Card shadow="hover" style="height:100%">
           <div slot="header">
-            <span>已授权</span>
-            <Button style="float: right; padding: 3px 0" type="text">{{name}}</Button>
+            <span>已授权许可</span>
+            <Tag style="float: right">当前用户：{{name}}</Tag>
           </div>
           <div class="d2-m-5" v-for="p in permissions" :key="p">
             <Tag>{{p}}</Tag>

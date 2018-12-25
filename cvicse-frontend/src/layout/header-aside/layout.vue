@@ -58,7 +58,7 @@
           </transition>
           <!-- 内容 -->
           <transition name="fade-scale">
-            <div v-show="!searchActive" class="d2-theme-container-main-layer" flex="dir:top">
+            <div ref="main" v-show="!searchActive" class="d2-theme-container-main-layer" flex="dir:top">
               <!-- tab -->
               <div class="d2-theme-container-main-header" flex-box="0">
                 <d2-tabs/>

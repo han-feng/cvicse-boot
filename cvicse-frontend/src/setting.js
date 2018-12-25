@@ -1,3 +1,8 @@
+// 许可类型常量
+export const ANONYMOUS = 'anonymous'
+export const LOGGEDIN = 'loggedIn'
+export const CHECK = 'check'
+
 export default {
   // 快捷键
   // 支持快捷键 例如 ctrl+shift+s
@@ -9,7 +14,8 @@ export default {
   },
   // 侧边栏默认折叠状态
   menu: {
-    asideCollapse: false
+    asideCollapse: false,
+    showNoAuth: false
   },
   // 在读取持久化数据失败时默认页面
   page: {
@@ -59,5 +65,16 @@ export default {
     info: {
       name: 'Guest'
     }
+  },
+  // 许可类型取值有：
+  // 1、ANONYMOUS，允许匿名访问；
+  // 2、LOGGEDIN，登录就可以访问；
+  // 3、CHECK，需要检查当前用户许可
+  // 不在此处配置的许可取值为 loggedIn
+  permissions: {
+    '/login': ANONYMOUS,
+    '/demo/page1': CHECK,
+    '/demo/page2': CHECK,
+    '/demo/page3': CHECK
   }
 }
