@@ -19,8 +19,8 @@ import menu from '@/menu'
 import { frameInRoutes } from '@/router/routes'
 
 // 授权 mixin
-import auth from '@/libs/auth.js'
-import util from '@/libs/util.js'
+import Auth from '@/libs/Auth'
+import util from '@/libs/util'
 import setting from './setting'
 
 // 核心插件
@@ -31,7 +31,7 @@ Vue.use(d2Admin)
 // Vue.use(D2Crud)
 
 // 授权 mixin
-Vue.mixin(auth)
+Vue.mixin(Auth)
 
 new Vue({
   router,

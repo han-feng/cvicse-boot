@@ -1,18 +1,17 @@
-
 /**
  * @/plugin/axios 与 @/store 存在循环依赖，导致 jest 报错，
  * 此处屏蔽 @/plugin/axios 对当前测试案例无影响
  */
 jest.mock('@/plugin/axios', () => {})
 /**
- * util.log 引入 webpack externals ‘logger’ ，暂时无法通过配置解决
+ * util.log 依赖 webpack externals ‘logger’ 导致报错，暂时无法通过配置解决
  */
 jest.mock('@/libs/util.log', () => {})
 
 // 使用 babel 插件解决 jest 不能解析 require.context 的问题
 require('babel-plugin-require-context-hook/register')()
 
-const { forEachMatch, treeMatch } = require('@/libs/auth')
+const { forEachMatch, treeMatch } = require('@/libs/Auth')
 
 const userPermissions = [
   '/login',

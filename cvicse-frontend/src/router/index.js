@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css'
 import store from '@/store'
 
 import util from '@/libs/util.js'
-import { checkPermission } from '@/libs/auth.js'
+import { checkPermission } from '@/libs/Auth'
 
 // 路由数据
 import routes from './routes'

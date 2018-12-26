@@ -95,9 +95,6 @@
     "not ie <= 8"
   ],
   "jest": {
-    "globals": {
-      "logger": "console"
-    },
     "moduleFileExtensions": [
       "js",
       "jsx",
