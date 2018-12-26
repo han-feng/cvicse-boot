@@ -3,14 +3,6 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'
 
-// 创建一个错误
-function errorCreat (msg, data = {}) {
-  const err = new Error(msg)
-  err.data = data
-  errorLog(err)
-  throw err
-}
-
 // 记录和显示错误
 function errorLog (err) {
   // 添加到日志
@@ -30,6 +22,14 @@ function errorLog (err) {
     type: 'error',
     duration: 5 * 1000
   })
+}
+
+// 创建一个错误
+function errorCreat (msg, data = {}) {
+  const err = new Error(msg)
+  err.data = data
+  errorLog(err)
+  throw err
 }
 
 // 创建一个 axios 实例

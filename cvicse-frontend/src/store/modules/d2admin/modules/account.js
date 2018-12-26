@@ -1,4 +1,4 @@
-import { AccountLogin } from '@api/sys.login'
+import { AccountLogin } from '@/api/sys.login'
 
 export default {
   namespaced: true,
