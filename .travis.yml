@@ -2,9 +2,7 @@ language:
   - java
   - node_js
 
-jdk:
-  - openjdk8
-  - oraclejdk8
+jdk: openjdk8
 
 node_js: stable
 
@@ -23,9 +21,9 @@ addons:
 
 cache:
   directories:
-    - "$HOME/.m2/repository"
-    - "$HOME/.sonar/cache"
-    - "cvicse-frontend/node_modules"
+    - $HOME/.m2/repository
+    - $HOME/.sonar/cache
+    - cvicse-frontend/node_modules
 
 script:
   - mvn clean package
