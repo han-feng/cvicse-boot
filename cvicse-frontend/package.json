@@ -118,7 +118,7 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{js,jsx,json,vue}"
     ],
-    "setupFiles": ["<rootDir>/tests/setup"],
+    "setupFiles": ["<rootDir>/tests/setup/requireContextRegister"],
     "browser": true,
     "collectCoverage": true,
     "testURL": "http://localhost/"
