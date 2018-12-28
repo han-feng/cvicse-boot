@@ -8,9 +8,6 @@ jest.mock('@/plugin/axios', () => {})
  */
 jest.mock('@/libs/util.log', () => {})
 
-// 使用 babel 插件解决 jest 不能解析 require.context 的问题
-require('babel-plugin-require-context-hook/register')()
-
 const { forEachMatch, treeMatch } = require('@/libs/Auth')
 
 const userPermissions = [

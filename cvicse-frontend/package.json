@@ -118,6 +118,7 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{js,jsx,json,vue}"
     ],
+    "setupFiles": ["<rootDir>/tests/setup"],
     "browser": true,
     "collectCoverage": true,
     "testURL": "http://localhost/"
