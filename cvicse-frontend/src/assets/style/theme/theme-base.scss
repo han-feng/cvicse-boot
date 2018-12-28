@@ -121,6 +121,7 @@
         text-align: center;
         line-height: 60px;
         height: 60px;
+        @extend %unable-select;
         img {
           height: 60px;
         }
@@ -256,6 +257,13 @@
             .d2-multiple-page-control-btn {
               position: relative;
               bottom: -1px;
+              .btn-text {
+                font-size: 12px;
+                padding: 13px 16px;
+                border-radius: 0;
+                margin: 0px !important;
+                bottom: 0;
+              }
               .el-dropdown {
                 .el-button-group {
                   .el-button:first-child {

@@ -10,64 +10,56 @@
             :menulist="tagName === '/index' ? contextmenuListIndex : contextmenuList"
             @rowClick="contextmenuClick"/>
         </d2-contextmenu>
-        <Tabs
-          class="d2-multiple-page-control"
-          :value="current"
-          type="card"
-          :closable="true"
-          @tab-click="handleClick"
-          @edit="handleTabsEdit"
-          @contextmenu.native="handleContextmenu">
-          <TabPane
-            v-for="page in opened"
-            :key="page.fullPath"
-            :label="page.meta.title || '未命名'"
-            :name="page.fullPath"/>
-        </Tabs>
+        <Tooltip
+          effect="dark"
+          :content="maximized ? '双击恢复' : '双击最大化'"
+          hide-after="3000"
+          placement="bottom">
+          <Tabs
+            class="d2-multiple-page-control"
+            :value="current"
+            type="card"
+            :closable="true"
+            @tab-click="handleClick"
+            @dblclick.native="handleDbclickTabs"
+            @edit="handleTabsEdit"
+            @contextmenu.native="handleContextmenu">
+            <TabPane
+              v-for="page in opened"
+              :key="page.fullPath"
+              :label="page.meta.title || '未命名'"
+              :name="page.fullPath"/>
+          </Tabs>
+        </Tooltip>
       </div>
     </div>
     <div
       class="d2-multiple-page-control-btn"
       flex-box="0">
-      <Dropdown
-        size="default"
-        split-button
-        @click="handleControlBtnClick"
-        @command="command => handleControlItemClick(command)">
-        <d2-icon name="times-circle"/>
-        <DropdownMenu slot="dropdown">
-          <DropdownItem command="left">
-            <d2-icon name="arrow-left" class="d2-mr-10"/>
-            关闭左侧
-          </DropdownItem>
-          <DropdownItem command="right">
-            <d2-icon name="arrow-right" class="d2-mr-10"/>
-            关闭右侧
-          </DropdownItem>
-          <DropdownItem command="other">
-            <d2-icon name="times" class="d2-mr-10"/>
-            关闭其它
-          </DropdownItem>
-          <DropdownItem command="all">
-            <d2-icon name="times-circle" class="d2-mr-10"/>
-            全部关闭
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+      <Tooltip
+        effect="dark"
+        :content="maximized ? '恢复' : '最大化'"
+        placement="bottom">
+        <Button
+          class="d2-ml-0 d2-mr btn-text can-hover"
+          type="text"
+          @click="handleControlBtnClick">
+          <d2-icon :name="maximized ? 'window-restore' : 'window-maximize'"/>
+        </Button>
+      </Tooltip>
     </div>
   </div>
 </template>
 
 <script>
-import { Tabs, TabPane, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
+import { Tooltip, Button, Tabs, TabPane } from 'element-ui'
 import { mapState, mapActions } from 'vuex'
 export default {
   components: {
+    Tooltip,
+    Button,
     Tabs,
     TabPane,
-    Dropdown,
-    DropdownMenu,
-    DropdownItem,
     D2Contextmenu: () => import('../contextmenu'),
     D2ContextmenuList: () => import('../contextmenu/components/contentmenuList')
   },
@@ -91,8 +83,16 @@ export default {
   computed: {
     ...mapState('d2admin/page', [
       'opened',
-      'current'
+      'current',
+      'maximized'
     ])
+  },
+  created () {
+    this.clearSelection = window['getSelection'] ? function () {
+      window.getSelection().removeAllRanges()
+    } : function () {
+      document.selection.empty()
+    }
   },
   methods: {
     ...mapActions('d2admin/page', [
@@ -100,8 +100,13 @@ export default {
       'closeLeft',
       'closeRight',
       'closeOther',
-      'closeAll'
+      'closeAll',
+      'maximizedToggle'
     ]),
+    handleDbclickTabs () {
+      this.maximizedToggle()
+      this.clearSelection()
+    },
     /**
      * @description 右键菜单功能点击
      */
@@ -153,6 +158,9 @@ export default {
         case 'all':
           this.closeAll(this)
           break
+        case 'max':
+          this.maximizedToggle(this)
+          break
         default:
           this.$message.error('无效的操作')
           break
@@ -162,7 +170,7 @@ export default {
      * @description 接收点击关闭控制上按钮的事件
      */
     handleControlBtnClick () {
-      this.closeAll(this)
+      this.maximizedToggle(this)
     },
     /**
      * @description 接收点击 tab 标签的事件

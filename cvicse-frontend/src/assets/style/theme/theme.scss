@@ -60,7 +60,7 @@
   .el-menu--horizontal .el-menu .el-submenu__title:hover {
     @include theme-menu-hover-style;
   }
-  
+
   // 顶栏
   .d2-theme-header {
     // 顶栏菜单空间不足时显示的滚动控件
@@ -286,6 +286,16 @@
         }
         // 多页控制器的关闭控制
         .d2-multiple-page-control-btn {
+          .btn-text {
+            color: $theme-header-item-color;
+            border-bottom-color: $theme-multiple-page-control-border-color;
+            &.can-hover {
+              &:hover {
+                color: $theme-header-item-color-hover;
+                background: $theme-header-item-background-color-hover;
+              }
+            }
+          }
           .el-dropdown {
             .el-button-group {
               .el-button {

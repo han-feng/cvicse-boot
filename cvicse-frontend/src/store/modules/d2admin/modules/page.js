@@ -15,6 +15,8 @@ export default {
     opened: setting.page.opened,
     // 当前页面
     current: '',
+    // 页面最大化显示
+    maximized: false,
     // 需要缓存的页面 name
     keepAlive: []
   },
@@ -163,6 +165,14 @@ export default {
         // end
         resolve()
       })
+    },
+    /**
+     * @class maximizedToggle
+     * @description 切换最大化状态
+     * @param {Object} state vuex state
+     */
+    maximizedToggle ({ state, commit }) {
+      commit('maximizedSet', !state.maximized)
     },
     /**
      * @class opened
@@ -375,6 +385,15 @@ export default {
      */
     currentSet (state, fullPath) {
       state.current = fullPath
+    },
+    /**
+     * @class current
+     * @description 设置页面是否最大化显示
+     * @param {Object} state vuex state
+     * @param {String} maximized maximized
+     */
+    maximizedSet (state, maximized) {
+      state.maximized = maximized
     },
     /**
      * @class pool

@@ -10,6 +10,7 @@
       <!-- 顶栏 -->
       <div
         class="d2-theme-header"
+        v-show="!maximized"
         :style="{
           opacity: this.searchActive ? 0.5 : 1
         }"
@@ -40,6 +41,7 @@
           flex-box="0"
           ref="aside"
           class="d2-theme-container-aside"
+          v-show="!maximized"
           :style="{
             width: asideCollapse ? asideWidthCollapse : asideWidth,
             opacity: this.searchActive ? 0.5 : 1
@@ -58,7 +60,11 @@
           </transition>
           <!-- 内容 -->
           <transition name="fade-scale">
-            <div ref="main" v-show="!searchActive" class="d2-theme-container-main-layer" flex="dir:top">
+            <div
+              v-show="!searchActive"
+              :style="styleMaximized"
+              class="d2-theme-container-main-layer"
+              flex="dir:top">
               <!-- tab -->
               <div class="d2-theme-container-main-header" flex-box="0">
                 <d2-tabs/>
@@ -118,6 +124,7 @@ export default {
   computed: {
     ...mapState('d2admin', {
       keepAlive: state => state.page.keepAlive,
+      maximized: state => state.page.maximized,
       grayActive: state => state.gray.active,
       transitionActive: state => state.transition.active,
       asideCollapse: state => state.menu.asideCollapse
@@ -134,6 +141,11 @@ export default {
           backgroundImage: `url('${this.$baseUrl}${this.themeActiveSetting.backgroundImage}')`
         } : {}
       }
+    },
+    styleMaximized () {
+      return this.maximized ? {
+        right: '-20px'
+      } : {}
     }
   },
   methods: {
