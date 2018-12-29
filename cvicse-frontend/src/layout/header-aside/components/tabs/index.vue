@@ -10,35 +10,30 @@
             :menulist="tagName === '/index' ? contextmenuListIndex : contextmenuList"
             @rowClick="contextmenuClick"/>
         </d2-contextmenu>
-        <Tooltip
-          effect="dark"
-          :content="maximized ? '双击恢复' : '双击最大化'"
-          hide-after="3000"
-          placement="bottom">
-          <Tabs
-            class="d2-multiple-page-control"
-            :value="current"
-            type="card"
-            :closable="true"
-            @tab-click="handleClick"
-            @dblclick.native="handleDbclickTabs"
-            @edit="handleTabsEdit"
-            @contextmenu.native="handleContextmenu">
-            <TabPane
-              v-for="page in opened"
-              :key="page.fullPath"
-              :label="page.meta.title || '未命名'"
-              :name="page.fullPath"/>
-          </Tabs>
-        </Tooltip>
+        <Tabs
+          class="d2-multiple-page-control"
+          :value="current"
+          type="card"
+          :closable="true"
+          @tab-click="handleClick"
+          @dblclick.native="handleDbclickTabs"
+          @edit="handleTabsEdit"
+          @contextmenu.native="handleContextmenu">
+          <TabPane
+            v-for="page in opened"
+            :key="page.fullPath"
+            :label="page.meta.title || '未命名'"
+            :name="page.fullPath"/>
+        </Tabs>
       </div>
     </div>
     <div
       class="d2-multiple-page-control-btn"
       flex-box="0">
+      <D2HeaderFullscreen v-show="maximized" />
       <Tooltip
         effect="dark"
-        :content="maximized ? '恢复' : '最大化'"
+        :content="maximized ? '退出最大化' : '工作区最大化'"
         placement="bottom">
         <Button
           class="d2-ml-0 d2-mr btn-text can-hover"
@@ -61,7 +56,8 @@ export default {
     Tabs,
     TabPane,
     D2Contextmenu: () => import('../contextmenu'),
-    D2ContextmenuList: () => import('../contextmenu/components/contentmenuList')
+    D2ContextmenuList: () => import('../contextmenu/components/contentmenuList'),
+    D2HeaderFullscreen: () => import('../header-fullscreen')
   },
   data () {
     return {

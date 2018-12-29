@@ -112,6 +112,11 @@
   }
   // 主体
   .d2-layout-header-aside-content {
+    .btn-text {
+      padding: 12px 12px;
+      border-radius: 4px;
+      margin: 0px !important;
+    }
     // [布局] 顶栏
     .d2-theme-header {
       // logo区域
@@ -169,11 +174,6 @@
         height: 60px;
         display: flex;
         align-items: center;
-        .btn-text {
-          padding: 14px 12px;
-          border-radius: 4px;
-          margin: 0px !important;
-        }
         .el-dropdown {
           @extend %unable-select;
         }
@@ -256,14 +256,8 @@
             }
             .d2-multiple-page-control-btn {
               position: relative;
-              bottom: -1px;
-              .btn-text {
-                font-size: 12px;
-                padding: 13px 16px;
-                border-radius: 0;
-                margin: 0px !important;
-                bottom: 0;
-              }
+              height: 40px;
+              overflow: hidden;
               .el-dropdown {
                 .el-button-group {
                   .el-button:first-child {
