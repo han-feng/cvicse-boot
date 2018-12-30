@@ -45,20 +45,20 @@
     "@vue/cli-plugin-unit-jest": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "^1.0.0-beta.27",
+    "@vue/test-utils": "^1.0.0-beta.28",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-component": "^1.1.1",
     "babel-plugin-require-context-hook": "^1.0.0",
-    "eslint": "^5.11.0",
+    "eslint": "^5.11.1",
     "eslint-plugin-vue": "^5.0.0",
     "http-server": "^0.11.1",
     "lint-staged": "^8.1.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.0.1",
     "svg-sprite-loader": "^4.1.3",
-    "terser-webpack-plugin": "^1.2.0",
+    "terser-webpack-plugin": "^1.2.1",
     "text-loader": "0.0.1",
     "vue-template-compiler": "^2.5.21",
     "webpack-bundle-analyzer": "^3.0.3"
@@ -118,7 +118,9 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{js,jsx,json,vue}"
     ],
-    "setupFiles": ["<rootDir>/tests/setup/requireContextRegister"],
+    "setupFiles": [
+      "<rootDir>/tests/setup/requireContextRegister"
+    ],
     "browser": true,
     "collectCoverage": true,
     "testURL": "http://localhost/"
