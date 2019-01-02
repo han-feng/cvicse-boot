@@ -3,46 +3,36 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.cvicse.boot</groupId>
 	<artifactId>cvicse-boot</artifactId>
 	<version>${revision}</version>
 	<packaging>pom</packaging>
-
 	<name>CVICSE Boot</name>
 	<url>http://www.inforbus.com</url>
-
 	<licenses>
 		<license></license>
 	</licenses>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.6.RELEASE</version>
 	</parent>
-
 	<properties>
 		<revision>1.0-SNAPSHOT</revision>
-
 		<java.version>1.8</java.version>
-
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<maven.compiler.fork>true</maven.compiler.fork>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 	</properties>
-
 	<modules>
 		<!-- 前端，Vue Cli 3 应用 -->
 		<module>cvicse-frontend</module>
 		<!-- 后端服务，Spring Boot 应用 -->
 		<module>cvicse-server</module>
 	</modules>
-
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
@@ -70,6 +60,16 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<!-- 离线包打包工具配置 -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<ignoreMissingDescriptor>true</ignoreMissingDescriptor>
+					<descriptors>
+						<descriptor>${project.basedir}/offline/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
 			</plugin>
 			<!-- JaCoCo 代码测试覆盖率工具 -->
 			<plugin>
@@ -104,5 +104,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
 </project>
