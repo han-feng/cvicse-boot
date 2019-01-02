@@ -9,7 +9,7 @@
 		<fileSet>
 			<directory>${project.basedir}</directory>
 			<outputDirectory>/</outputDirectory>
-			<useDefaultExcludes>true</useDefaultExcludes>
+			<useDefaultExcludes>false</useDefaultExcludes>
 			<excludes>
 				<exclude>**/${project.build.directory}/**</exclude>
 				<exclude>**/logs/**</exclude>
