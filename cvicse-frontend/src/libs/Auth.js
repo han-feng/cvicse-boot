@@ -1,5 +1,10 @@
 import store from '@/store'
-// import setting from '@/setting'
+import setting from '@/setting'
+
+// 许可类型常量
+export const ANONYMOUS = 'anonymous'
+export const LOGGEDIN = 'loggedIn'
+export const CHECK = 'check'
 
 // Vue Mixin
 export default {
@@ -10,7 +15,25 @@ export default {
 
 // 当前用户许可检查
 export function checkPermission (...uris) {
-  return forEachMatch(uris, store.state.session.user.permissions)
+  // 对 uri 筛选过滤
+  let checks = []
+  for (let i in uris) {
+    const uri = uris[i]
+    let permissionSetting = setting.permissions[uri]
+    switch (permissionSetting) {
+      case ANONYMOUS:
+        return true
+      case CHECK:
+        checks.push(uri)
+        break
+      case LOGGEDIN:
+      default: // 默认按照 LOGGEDIN 处理
+        if (store.getters['session/loggedIn']) {
+          return true
+        }
+    }
+  }
+  return forEachMatch(checks, store.state.session.user.permissions)
 }
 
 // 逐条对比匹配算法

@@ -1,7 +1,5 @@
 // 许可类型常量
-export const ANONYMOUS = 'anonymous'
-export const LOGGEDIN = 'loggedIn'
-export const CHECK = 'check'
+import { ANONYMOUS, CHECK } from '@/libs/Auth'
 
 export default {
   // 快捷键
@@ -73,6 +71,7 @@ export default {
   // 不在此处配置的许可取值为 loggedIn
   permissions: {
     '/login': ANONYMOUS,
+    '/demo/graph': ANONYMOUS,
     '/demo/page1': CHECK,
     '/demo/page2': CHECK,
     '/demo/page3': CHECK

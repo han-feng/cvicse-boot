@@ -16,6 +16,12 @@ export default {
       meta: { ...meta, title: '查看权限' }
     },
     {
+      path: 'graph',
+      name: `${pre}graph`,
+      component: () => import('@/pages/demo/mxgraph'),
+      meta: { title: 'mxGraph 测试' }
+    },
+    {
       path: 'params/:id',
       name: `${pre}params`,
       props: true,

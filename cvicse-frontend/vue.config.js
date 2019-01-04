@@ -8,7 +8,7 @@ const resolve = dir => require('path').join(__dirname, dir)
 // 增加环境变量
 process.env.VUE_APP_NAME = PackageConfig.name
 process.env.VUE_APP_VERSION = PackageConfig.version
-process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYMDHHmmss')
+process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYMMDDHHmmss')
 
 module.exports = {
   baseUrl: '', // 使用相对路径可以满足大多数情况需求，如遇特殊情况满足不了请调整该值，请参考Vue Cli文档中关于“相对 baseUrl 的限制”：https://cli.vuejs.org/zh/config/#baseurl

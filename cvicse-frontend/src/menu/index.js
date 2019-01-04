@@ -17,11 +17,18 @@ export default [
       },
       {
         title: '参数路由',
+        icon: 'map-signs',
+        children: [
+          { path: '/demo/params/1', title: '编号 1', icon: 'map-marker' },
+          { path: '/demo/params/2', title: '编号 2', icon: 'map-marker' },
+          { path: '/demo/params/3', title: '编号 3', icon: 'map-marker' }
+        ]
+      },
+      {
+        title: 'mxGraph',
         icon: 'sitemap',
         children: [
-          { path: '/demo/params/1', title: '编号 1', icon: 'hashtag' },
-          { path: '/demo/params/2', title: '编号 2', icon: 'hashtag' },
-          { path: '/demo/params/3', title: '编号 3', icon: 'hashtag' }
+          { path: '/demo/graph', title: 'Hello, World!', icon: 'braille' }
         ]
       }
     ]
