@@ -8,7 +8,7 @@
 import mx from './mxgraph'
 
 export default {
-  name: 'demo-graph',
+  name: 'demo-graph-editor',
   mounted () {
     // Checks if the browser is supported
     if (!mx.mxClient.isBrowserSupported()) {

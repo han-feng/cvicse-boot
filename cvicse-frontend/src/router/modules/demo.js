@@ -22,6 +22,12 @@ export default {
       meta: { title: 'mxGraph 测试' }
     },
     {
+      path: 'graph/editor',
+      name: `${pre}graph-editor`,
+      component: () => import('@/pages/demo/mxgraph/editor'),
+      meta: { title: 'Graph 编辑器' }
+    },
+    {
       path: 'params/:id',
       name: `${pre}params`,
       props: true,
