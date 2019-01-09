@@ -25,7 +25,7 @@ function errorLog (err) {
 }
 
 // 创建一个错误
-function errorCreat (msg, data = {}) {
+function errorCreate (msg, data = {}) {
   const err = new Error(msg)
   err.data = data
   errorLog(err)
@@ -73,11 +73,11 @@ service.interceptors.response.use(
           return dataAxios.data
         case 'xxx':
           // [ 示例 ] 其它和后台约定的 code
-          errorCreat(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`, dataAxios.data)
+          errorCreate(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`, dataAxios.data)
           break
         default:
           // 不是正确的 code
-          errorCreat(`${dataAxios.msg}: ${response.config.url}`, dataAxios.data)
+          errorCreate(`${dataAxios.msg}: ${response.config.url}`, dataAxios.data)
           break
       }
     }

@@ -1,7 +1,5 @@
 import mxgraph from 'mxgraph'
 
-const mx = mxgraph({
+export default mxgraph({
   mxLoadResources: false
 })
-
-export default mx
