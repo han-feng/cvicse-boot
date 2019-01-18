@@ -1,5 +1,6 @@
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const TerserPlugin = require('terser-webpack-plugin')
+const FilterWebpackPlugin = require('./scripts/filter')
 const PackageConfig = require('./package.json')
 
 // 拼接路径
@@ -116,9 +117,10 @@ module.exports = {
     }
   },
   configureWebpack: {
-    // plugins: [
-    // new BundleAnalyzerPlugin()
-    // ],
+    plugins: [
+      // new BundleAnalyzerPlugin()
+      new FilterWebpackPlugin()
+    ],
     externals: {
       logger: 'console'
     }

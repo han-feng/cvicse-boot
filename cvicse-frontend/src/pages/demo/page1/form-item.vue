@@ -37,7 +37,6 @@
 
 <script>
 import { FormItem } from 'element-ui'
-
 export default {
   extends: FormItem,
   computed: {

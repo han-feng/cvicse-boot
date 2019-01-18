@@ -6,7 +6,7 @@
         label="年龄"
         prop="age"
         required
-      >
+        :rules="[valid_number(10,20)]">
         <Input type="age" v-model.number="numberValidateForm.age" autocomplete="off"></Input>
       </FormItem>
       <FormItem>
