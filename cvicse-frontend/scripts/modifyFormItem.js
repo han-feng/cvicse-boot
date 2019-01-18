@@ -3,6 +3,7 @@ const src = 'node_modules/element-ui/packages/form/src/form-item.vue'
 const target = 'src/components/extends/form-item.vue'
 const exp = /<template>[\d\D]*<\/template>/
 
+console.log('Modify FormItem ......')
 // 扩展 ElementUI FormItem 组件，需要拷贝 template 代码，并进行修改
 // 读取源码
 fs.readFile(src, 'utf8', function (err, data) {
@@ -27,3 +28,5 @@ fs.readFile(src, 'utf8', function (err, data) {
     })
   })
 })
+
+console.log('OK!')
