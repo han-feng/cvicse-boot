@@ -10,7 +10,8 @@
     "build:travis": "vue-cli-service build --modern --mode travis",
     "lint": "vue-cli-service lint --fix",
     "inspect": "vue-cli-service inspect > target/inspect-dev.log && vue-cli-service inspect --mode production > target/inspect-pro.log",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "postinstall": "node scripts/modifyFormItem.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
