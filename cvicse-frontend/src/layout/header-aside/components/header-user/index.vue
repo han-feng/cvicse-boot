@@ -1,6 +1,6 @@
 <template>
   <Dropdown size="small" class="d2-mr">
-    <span class="btn-text">你好 {{info.name}}</span>
+    <span class="btn-text">{{info.name ? `你好 ${info.name}` : '未登录'}}</span>
     <DropdownMenu slot="dropdown">
       <DropdownItem @click.native="logOff">
         <d2-icon name="power-off" class="d2-mr-5"/>
