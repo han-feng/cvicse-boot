@@ -54,7 +54,7 @@ new Vue({
     // this.$store.commit('d2admin/releases/versionShow')
     util.log.capsule(
       setting.releases.name,
-      `v${setting.releases.version} (${setting.releases.buildTime.substr(0, 6)})`
+      `v${setting.releases.version} (${setting.releases.buildTime})`
     )
     if (process.env.NODE_ENV === 'development') {
       console.log(process.env)
