@@ -1,6 +1,6 @@
 // 设置文件
 import setting from '@/setting.js'
-import { uniqueId, isArray } from 'lodash'
+import { uniqueId, isArray, cloneDeep } from 'lodash'
 import { checkPermission } from '@/libs/Auth'
 
 export default {
@@ -79,6 +79,11 @@ export default {
       // store 赋值
       menu.forEach(item => {
         if (isArray(item.children)) {
+          item.path = uniqueId('header-menu-')
+          item.children.parent = item.path
+        } else {
+          // 没有子菜单的情况，自动复制自身成为唯一子菜单
+          item.children = [ cloneDeep(item) ]
           item.path = uniqueId('header-menu-')
           item.children.parent = item.path
         }

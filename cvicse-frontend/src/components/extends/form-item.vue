@@ -37,12 +37,11 @@
 
 <script>
 import { FormItem } from 'element-ui'
-
 export default {
   extends: FormItem,
   computed: {
     validateMessageDisplay () {
-      return this.validateMessage + '##test##'
+      return this.validateMessage
     }
   }
 }

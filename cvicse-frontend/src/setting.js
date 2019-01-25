@@ -58,12 +58,6 @@ export default {
   transition: {
     active: true
   },
-  // 在读取持久化数据失败时默认用户信息
-  user: {
-    info: {
-      name: 'Guest'
-    }
-  },
   // 许可类型取值有：
   // 1、ANONYMOUS，允许匿名访问；
   // 2、LOGGEDIN，登录就可以访问；

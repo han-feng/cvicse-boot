@@ -6,7 +6,7 @@ export default {
     uuid: '',
     token: '',
     user: {
-      name: setting.user.info.name,
+      name: null,
       permissions: []
     }
   },

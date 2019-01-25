@@ -51,6 +51,12 @@ export default {
       name: `${pre}page3`,
       component: () => import('@/pages/demo/page3'),
       meta: { ...meta, title: '页面 3' }
+    },
+    {
+      path: 'validator',
+      name: `${pre}validator`,
+      component: () => import('@/pages/demo/validator'),
+      meta: { ...meta, title: '输入校验' }
     }
   ])('demo-')
 }

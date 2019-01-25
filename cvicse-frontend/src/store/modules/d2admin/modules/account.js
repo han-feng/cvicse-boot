@@ -60,13 +60,15 @@ export default {
      * @param {Object} param vm {Object} vue 实例
      * @param {Object} param confirm {Boolean} 是否需要确认
      */
-    logout ({ commit }, { vm, confirm = false }) {
+    logout ({ commit, dispatch }, { vm, confirm = false }) {
       /**
        * @description 注销
        */
-      function logout () {
+      async function logout () {
         // 重置会话信息
         commit('session/reset', null, { root: true })
+        // 清空 vuex 用户信息
+        await dispatch('d2admin/user/set', {}, { root: true })
         // 跳转路由
         vm.$router.push({
           name: 'login'

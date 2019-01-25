@@ -1,5 +1,3 @@
-// polyfill
-import 'babel-polyfill'
 // Vue
 import Vue from 'vue'
 import App from './App'
@@ -20,6 +18,9 @@ import { frameInRoutes } from '@/router/routes'
 
 // 授权 mixin
 import Auth from '@/libs/Auth'
+// 输入校验
+import Validator from '@/libs/Validator'
+
 import util from '@/libs/util'
 import setting from './setting'
 
@@ -32,6 +33,8 @@ Vue.use(d2Admin)
 
 // 授权 mixin
 Vue.mixin(Auth)
+// 输入校验
+Vue.mixin(Validator)
 
 new Vue({
   router,
@@ -51,7 +54,7 @@ new Vue({
     // this.$store.commit('d2admin/releases/versionShow')
     util.log.capsule(
       setting.releases.name,
-      `v${setting.releases.version} (${setting.releases.buildTime.substr(0, 6)})`
+      `v${setting.releases.version} (${setting.releases.buildTime})`
     )
     if (process.env.NODE_ENV === 'development') {
       console.log(process.env)
