@@ -120,7 +120,8 @@ module.exports = {
     // new BundleAnalyzerPlugin()
     // ],
     externals: {
-      logger: 'console'
+      logger: 'console',
+      serverConfig: 'serverConfig'
     }
   }
 }

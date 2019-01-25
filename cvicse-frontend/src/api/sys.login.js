@@ -1,9 +1,10 @@
 import Qs from 'qs'
 import request from '@/plugin/axios'
+import serverConfig from 'serverConfig'
 
 export function AccountLogin (data) {
   return request({
-    url: '/login',
+    url: serverConfig['service.login.url'],
     method: 'post',
     data,
     transformRequest: [function (data) {

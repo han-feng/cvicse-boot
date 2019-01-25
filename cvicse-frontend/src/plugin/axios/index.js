@@ -2,6 +2,7 @@ import store from '@/store'
 import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'
+import serverConfig from 'serverConfig'
 
 // 记录和显示错误
 function errorLog (err) {
@@ -34,8 +35,8 @@ function errorCreate (msg, data = {}) {
 
 // 创建一个 axios 实例
 const service = axios.create({
-  baseURL: process.env.VUE_APP_API,
-  timeout: 5000 // 请求超时时间
+  baseURL: serverConfig['service.baseUrl'],
+  timeout: serverConfig['service.timeout'] || 5000 // 请求超时时间
 })
 
 // 请求拦截器
