@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <div ref="container" style="position:absolute;top:0;left:0;border:1px solid blue"></div>
+    <div ref="container" style="position:absolute;top:0;left:0;right:0;bottom:0;border:1px solid blue"></div>
   </d2-container>
 </template>
 
@@ -22,7 +22,9 @@ export default {
       // eslint-disable-next-line new-cap
       var graph = new mx.mxGraph(this.$refs.container)
 
-      graph.resizeContainer = true
+      graph.setPanning(true) // 右键移动坐标轴
+      graph.setCellsResizable(false) // 节点不可改变大小
+      graph.setResizeContainer(true)
       graph.setEnabled(true) // false 为只读模式
 
       // Enables rubberband selection
