@@ -21,7 +21,7 @@
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.14.1",
     "dayjs": "^1.8.0",
-    "element-ui": "^2.4.11",
+    "element-ui": "^2.5.2",
     "flex.css": "^1.1.7",
     "fuse.js": "^3.3.0",
     "hotkeys-js": "^3.4.3",
@@ -112,7 +112,7 @@
     },
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "serverConfig": "<rootDir>/public/server.config.js"
+      "serverConfig": "<rootDir>/tests/mock/server.config.js"
     },
     "snapshotSerializers": [
       "jest-serializer-vue"

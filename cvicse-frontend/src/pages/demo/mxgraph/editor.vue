@@ -18,6 +18,8 @@ export default {
       // Disables the built-in context menu
       mx.mxEvent.disableContextMenu(this.$refs.container)
 
+      mx.mxGraphHandler.prototype.guidesEnabled = true // 显示细胞位置标尺
+
       // Creates the graph inside the given container
       // eslint-disable-next-line new-cap
       var graph = new mx.mxGraph(this.$refs.container)
