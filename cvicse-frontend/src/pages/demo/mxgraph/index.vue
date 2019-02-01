@@ -5,29 +5,33 @@
 </template>
 
 <script>
-import mx from './mxgraph'
+import { mxClient, mxUtils, mxEvent, mxGraphHandler, mxGraph, mxRubberband } from './mxgraph'
 
 export default {
   name: 'demo-graph',
   mounted () {
     // Checks if the browser is supported
-    if (!mx.mxClient.isBrowserSupported()) {
+    if (!mxClient.isBrowserSupported()) {
       // Displays an error message if the browser is not supported.
-      mx.mxUtils.error('Browser is not supported!', 200, false)
+      mxUtils.error('Browser is not supported!', 200, false)
     } else {
       // Disables the built-in context menu
-      mx.mxEvent.disableContextMenu(this.$refs.container)
+      mxEvent.disableContextMenu(this.$refs.container)
+
+      mxGraphHandler.prototype.guidesEnabled = true // 显示细胞位置标尺
 
       // Creates the graph inside the given container
       // eslint-disable-next-line new-cap
-      var graph = new mx.mxGraph(this.$refs.container)
+      var graph = new mxGraph(this.$refs.container)
 
-      graph.resizeContainer = true
+      graph.setPanning(true) // 右键移动坐标轴
+      graph.setCellsResizable(false) // 节点不可改变大小
+      graph.setResizeContainer(true)
       graph.setEnabled(true) // false 为只读模式
 
       // Enables rubberband selection
       // eslint-disable-next-line new-cap, no-new
-      new mx.mxRubberband(graph)
+      new mxRubberband(graph)
 
       // Gets the default parent for inserting new cells. This
       // is normally the first child of the root (ie. layer 0).
