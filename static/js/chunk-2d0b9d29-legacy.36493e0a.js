@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["chunk-2d0b9d29"],{"351b":function(n,e,t){"use strict";t.r(e);var r={name:"demo-graph-editor",mounted:function(){}},a=t("2877"),c=Object(a.a)(r,function(){var n=this.$createElement;return(this._self._c||n)("d2-container-frame",{attrs:{src:"ge/index.html?lang=zh-CN"}})},[],!1,null,null,null);e.default=c.exports}}]);
