@@ -1,5 +1,5 @@
 <template>
-  <d2-container-frame src="ge/index.html">
+  <d2-container-frame src="ge/index.html?lang=zh-CN">
   </d2-container-frame>
 </template>
 
