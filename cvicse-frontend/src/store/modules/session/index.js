@@ -1,5 +1,3 @@
-import setting from '@/setting.js'
-
 export default {
   namespaced: true,
   state: {
@@ -48,7 +46,7 @@ export default {
      */
     reset (state) {
       // store 赋值
-      state.user.name = setting.user.info.name
+      state.user.name = null
       state.user.permissions = []
       state.uuid = ''
       state.token = ''
