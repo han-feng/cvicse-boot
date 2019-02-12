@@ -3,6 +3,9 @@ export default {
   state: {
     uuid: '',
     token: '',
+    showIframe: false,
+    currentIframe: '',
+    iframes: [],
     user: {
       name: null,
       permissions: []
@@ -31,6 +34,31 @@ export default {
       state.token = token
     },
     /**
+     * @description 设置是否显示 Iframe
+     * @param {Object} state vuex state
+     * @param {*} showIframe showIframe
+     */
+    setShowIframe (state, showIframe) {
+      state.showIframe = showIframe
+    },
+    enterIframe (state, { key, src }) {
+      if (!state.iframes.find(item => item.key === key)) {
+        state.iframes.push({ key, src })
+      }
+      state.currentIframe = key
+      state.showIframe = true
+    },
+    leaveIframe (state) {
+      state.showIframe = false
+    },
+    closeIframe (state, key) {
+      state.showIframe = false
+      const i = state.iframes.findIndex(item => item.key === key)
+      if (i >= 0) {
+        state.iframes.splice(i, 1)
+      }
+    },
+    /**
      * @description 设置用户数据
      * @param {Object} state vuex state
      * @param {*} user user
@@ -50,6 +78,7 @@ export default {
       state.user.permissions = []
       state.uuid = ''
       state.token = ''
+      state.showIframe = false
     }
   }
 }
