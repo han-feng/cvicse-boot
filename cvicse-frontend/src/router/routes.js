@@ -27,7 +27,7 @@ const frameIn = [
         hidden: true,
         component: {
           beforeRouteEnter (to, from, next) {
-            next(vm => vm.$router.replace(from.fullPath))
+            next(instance => instance.$router.replace(from.fullPath))
           },
           render: h => h()
         }
@@ -39,7 +39,7 @@ const frameIn = [
         hidden: true,
         component: {
           beforeRouteEnter (to, from, next) {
-            next(vm => vm.$router.replace(JSON.parse(from.params.route)))
+            next(instance => instance.$router.replace(JSON.parse(from.params.route)))
           },
           render: h => h()
         }
@@ -85,4 +85,8 @@ const errorPage = [
 export const frameInRoutes = frameIn
 
 // 重新组织后导出
-export default [...frameIn, ...frameOut, ...errorPage]
+export default [
+  ...frameIn,
+  ...frameOut,
+  ...errorPage
+]

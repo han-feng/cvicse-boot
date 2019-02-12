@@ -1,5 +1,5 @@
 // 许可类型常量
-import { ANONYMOUS, CHECK } from '@/libs/Auth'
+import { ANONYMOUS, CHECK } from '@/libs/Auth.Constant'
 
 export default {
   // 快捷键

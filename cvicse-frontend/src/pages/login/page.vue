@@ -154,7 +154,7 @@ export default {
           // 注意 这里的演示没有传验证码
           // 具体需要传递的数据请自行修改代码
           this.login({
-            vm: this,
+            instance: this,
             username: this.formLogin.username,
             password: this.formLogin.password
           })

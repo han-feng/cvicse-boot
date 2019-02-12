@@ -33,7 +33,6 @@ export default {
      */
     logOff () {
       this.logout({
-        vm: this,
         confirm: true
       })
     }

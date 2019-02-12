@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
   } else if (to.meta.auth) {
     if (store.getters['session/loggedIn']) {
       // 已登录，则进行许可检查
-      if (to.meta.auth !== 'check' || checkPermission(to.fullPath)) {
+      if (checkPermission(to.fullPath)) {
         next()
       } else {
         // 无权访问时显示提示信息

@@ -4,7 +4,7 @@ import vuexAlong from '@/plugin/vuex-along'
 
 import session from './modules/session'
 import d2admin from './modules/d2admin'
-import setting from '@/setting.js'
+import setting from '@/setting'
 
 Vue.use(Vuex)
 
