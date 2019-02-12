@@ -56,7 +56,7 @@ export default {
   },
   // 是否默认开启页面切换动画
   transition: {
-    active: false
+    active: true
   },
   // 许可类型取值有：
   // 1、ANONYMOUS，允许匿名访问；

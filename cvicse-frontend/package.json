@@ -1,6 +1,6 @@
 {
   "name": "cvicse-frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
@@ -65,7 +65,7 @@
     "terser-webpack-plugin": "^1.2.2",
     "text-loader": "0.0.1",
     "vue-template-compiler": "^2.6.6",
-    "webpack-bundle-analyzer": "^3.0.3"
+    "webpack-bundle-analyzer": "^3.0.4"
   },
   "eslintConfig": {
     "root": true,
