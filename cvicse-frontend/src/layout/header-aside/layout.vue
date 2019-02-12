@@ -76,12 +76,7 @@
                     <router-view/>
                   </keep-alive>
                 </transition>
-                <d2-container-frame
-                  v-for="item in iframes"
-                  :key="item.key"
-                  :src="item.src"
-                  v-show="showIframe && currentIframe === item.key"
-                />
+                <iframes v-show="showIframe" />
               </div>
             </div>
           </transition>
@@ -100,10 +95,10 @@ import d2HeaderSearch from './components/header-search'
 import d2HeaderTheme from './components/header-theme'
 import d2HeaderUser from './components/header-user'
 import d2HeaderErrorLog from './components/header-error-log'
-import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import iframes from './components/iframes'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import PageManager from '@/mixins/BasePageManager'
 import mixinSearch from './mixins/search'
-import d2ContainerFrame from '@/components/d2-container-frame'
 export default {
   name: 'd2-layout-header-aside',
   mixins: [
@@ -114,7 +109,7 @@ export default {
     d2MenuSide,
     d2MenuHeader,
     d2Tabs,
-    d2ContainerFrame,
+    iframes,
     d2HeaderFullscreen,
     d2HeaderSearch,
     d2HeaderTheme,
@@ -138,9 +133,7 @@ export default {
       asideCollapse: state => state.menu.asideCollapse
     }),
     ...mapState('session', [
-      'showIframe',
-      'currentIframe',
-      'iframes'
+      'showIframe'
     ]),
     ...mapGetters('d2admin', {
       themeActiveSetting: 'theme/activeSetting'
@@ -165,15 +158,11 @@ export default {
     ...mapActions('d2admin/menu', [
       'asideCollapseToggle'
     ]),
-    ...mapMutations('session', [
-      'setShowIframe'
-    ]),
     /**
      * 接收点击切换侧边栏的按钮
      */
     handleToggleAside () {
-      // this.asideCollapseToggle()
-      this.setShowIframe(!this.showIframe)
+      this.asideCollapseToggle()
     }
   }
 }
