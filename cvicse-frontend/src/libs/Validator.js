@@ -33,19 +33,9 @@ export default {
  * @param decimals：保留几位小数 默认0位
  */
 export const formatDecimal = (number, decimals = 0) => {
-  /**
-   * decPoint：小数点符号 默认.
-   *  */
-  const decPoint = '.'
-  /**
-   * thousandsSep：千分位符号 默认为,
-   *  */
-  const thousandsSep = ','
   number = (number + '').replace(/[^0-9+-Ee.]/g, '')
   let n = !isFinite(+number) ? 0 : +number
   let prec = !isFinite(+decimals) ? 0 : Math.abs(decimals)
-  let sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep
-  let dec = (typeof decPoint === 'undefined') ? '.' : decPoint
   let s = ''
   let toFixedFix = function (n, prec) {
     let k = Math.pow(10, prec)
@@ -54,13 +44,13 @@ export const formatDecimal = (number, decimals = 0) => {
   s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.')
   let re = /(-?\d+)(\d{3})/
   while (re.test(s[0])) {
-    s[0] = s[0].replace(re, '$1' + sep + '$2')
+    s[0] = s[0].replace(re, '$1,$2')
   }
   if ((s[1] || '').length < prec) {
     s[1] = s[1] || ''
     s[1] += new Array(prec - s[1].length + 1).join('0')
   }
-  return s.join(dec)
+  return s.join('.')
 }
 /**
  * 校验字符串规则生成方法
@@ -143,7 +133,7 @@ export function validateMobilePhone (rule, value, callback) {
     if (value.substring(0, 1) !== '1') {
       callback(new Error('请正确填写手机号码,第一个字符必须是【1】'))
     }
-    if (!reg.exec(value) && !value.length !== 11) {
+    if (!reg.exec(value) && value.length !== 11) {
       callback(new Error('警告：请输入有效的11位手机号码 例如:13511111111！'))
     }
   }
