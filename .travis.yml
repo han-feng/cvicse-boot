@@ -6,16 +6,16 @@ jdk: openjdk8
 
 node_js: stable
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 notifications:
   email: false
 
 addons:
   sonarcloud:
-    organization: "han-feng-github"
+    organization: han-feng-github
     token:
       secure: $SONAR_CLOUD_TOKEN
 
