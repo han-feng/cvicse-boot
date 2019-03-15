@@ -1,6 +1,6 @@
 // FIXME 临时跑通逻辑
 import menu from '@/menu'
-import { frameInRoutes } from '@/router/routes'
+import { frameInRoutes } from './routes'
 import util from '@/libs/util'
 import setting from '@/setting'
 

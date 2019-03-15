@@ -112,6 +112,8 @@ export default {
     // 加入路由
     router.addRoutes(routes)
 
+    console.log('>>>>>>>>> routes', routes)
+
     // 处理 vue.router.event
     configs = moduleConfig.getExtension('vue.router.event')
     for (let key in configs) {

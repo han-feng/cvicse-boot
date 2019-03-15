@@ -1,5 +1,3 @@
-import demo from './modules/demo'
-
 import layoutHeaderAside from '@/layout/header-aside'
 
 /**
@@ -46,8 +44,7 @@ const frameIn = [
         }
       }
     ]
-  },
-  demo
+  }
 ]
 
 /**

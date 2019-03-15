@@ -1,6 +1,6 @@
 import util from '@/libs/util'
-import router from '@/vue/router'
-import store from '@/vue/store'
+import router from 'modular-vue/router'
+import store from 'modular-vue/store'
 import { cloneDeep } from 'lodash'
 
 /**

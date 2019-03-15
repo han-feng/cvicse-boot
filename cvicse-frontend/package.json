@@ -116,6 +116,7 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "serverConfig": "<rootDir>/tests/mock/server.config.js",
+      "modular-vue": "<rootDir>/src/vue",
       "logger": "<rootDir>/tests/mock/logger.js"
     },
     "snapshotSerializers": [

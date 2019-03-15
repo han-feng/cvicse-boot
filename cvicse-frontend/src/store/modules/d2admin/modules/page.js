@@ -1,6 +1,6 @@
 import { get } from 'lodash'
 // 路由
-import router from '@/vue/router'
+import router from 'modular-vue/router'
 // 设置文件
 import setting from '@/setting'
 
