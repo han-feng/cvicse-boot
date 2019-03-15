@@ -12,6 +12,7 @@
     "inspect": "vue-cli-service inspect > target/inspect-dev.log && vue-cli-service inspect --mode production > target/inspect-pro.log",
     "test:unit": "vue-cli-service test:unit",
     "prestart": "npm run build",
+    "pretest:unit": "node scripts/fix-jest-util-bug.js",
     "postinstall": "node scripts/modifyFormItem.js"
   },
   "dependencies": {
@@ -116,7 +117,7 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "serverConfig": "<rootDir>/tests/mock/server.config.js",
-      "modular-vue": "<rootDir>/src/vue",
+      "^modular-vue/(.*)$": "<rootDir>/src/vue/$1",
       "logger": "<rootDir>/tests/mock/logger.js"
     },
     "snapshotSerializers": [

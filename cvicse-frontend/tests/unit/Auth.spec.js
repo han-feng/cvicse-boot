@@ -5,7 +5,7 @@
 /**
  * store account.js 引用的 message.css 存在语法错误，导致 jest 报错
  */
-jest.mock('modular-vue/store', () => {})
+// jest.mock('modular-vue/store', () => {})
 
 const { ANONYMOUS, LOGGEDIN, CHECK } = require('@/libs/Auth.Constant')
 const { getPermissionType, forEachMatch, treeMatch } = require('@/libs/Auth')
