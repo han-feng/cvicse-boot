@@ -1,5 +1,5 @@
 import { Message, MessageBox } from 'element-ui'
-import router from '@/router'
+import router from '@/vue/router'
 import { AccountLogin } from '@/api/sys.login'
 
 export default {

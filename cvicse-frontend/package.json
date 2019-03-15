@@ -30,6 +30,7 @@
     "lodash": "^4.17.11",
     "lowdb": "^1.0.0",
     "mockjs": "^1.0.1-beta3",
+    "modular-core": "^0.4.1",
     "mxgraph": "^3.9.12",
     "nprogress": "^0.2.0",
     "particles.js": "^2.0.0",

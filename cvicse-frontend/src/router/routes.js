@@ -8,6 +8,7 @@ import layoutHeaderAside from '@/layout/header-aside'
 const frameIn = [
   {
     path: '/',
+    name: 'frame',
     redirect: { name: 'index' },
     component: layoutHeaderAside,
     children: [

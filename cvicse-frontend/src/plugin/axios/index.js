@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from '@/vue/store'
 import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'

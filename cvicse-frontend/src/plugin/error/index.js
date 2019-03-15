@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from '@/vue/store'
 import util from '@/libs/util'
 import setting from '@/setting'
 

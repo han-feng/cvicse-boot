@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from '@/vue/store'
 import setting from '@/setting'
 import { ANONYMOUS, LOGGEDIN, CHECK } from './Auth.Constant'
 
