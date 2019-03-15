@@ -9,7 +9,7 @@ export default {
     'frame'
   ],
   extensions: {
-    'vue.router': {
+    'vue.router.addRoutes': {
       demo: {
         parent: 'frame',
         routes

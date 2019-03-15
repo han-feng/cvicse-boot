@@ -3,49 +3,47 @@ import layoutHeaderAside from '@/layout/header-aside'
 /**
  * 在主框架内显示
  */
-const frameIn = [
-  {
-    path: '/',
-    name: 'frame',
-    redirect: { name: 'index' },
-    component: layoutHeaderAside,
-    children: [
-      // 首页 必须 name:index
-      {
-        path: 'index',
-        name: 'index',
-        meta: {
-          auth: true
+export const frameRoute = {
+  path: '/',
+  name: 'frame',
+  redirect: { name: 'index' },
+  component: layoutHeaderAside,
+  children: [
+    // 首页 必须 name:index
+    {
+      path: 'index',
+      name: 'index',
+      meta: {
+        auth: true
+      },
+      component: () => import('@/pages/index')
+    },
+    // 刷新页面 必须保留
+    {
+      path: 'refresh',
+      name: 'refresh',
+      hidden: true,
+      component: {
+        beforeRouteEnter (to, from, next) {
+          next(instance => instance.$router.replace(from.fullPath))
         },
-        component: () => import('@/pages/index')
-      },
-      // 刷新页面 必须保留
-      {
-        path: 'refresh',
-        name: 'refresh',
-        hidden: true,
-        component: {
-          beforeRouteEnter (to, from, next) {
-            next(instance => instance.$router.replace(from.fullPath))
-          },
-          render: h => h()
-        }
-      },
-      // 页面重定向 必须保留
-      {
-        path: 'redirect/:route*',
-        name: 'redirect',
-        hidden: true,
-        component: {
-          beforeRouteEnter (to, from, next) {
-            next(instance => instance.$router.replace(JSON.parse(from.params.route)))
-          },
-          render: h => h()
-        }
+        render: h => h()
       }
-    ]
-  }
-]
+    },
+    // 页面重定向 必须保留
+    {
+      path: 'redirect/:route*',
+      name: 'redirect',
+      hidden: true,
+      component: {
+        beforeRouteEnter (to, from, next) {
+          next(instance => instance.$router.replace(JSON.parse(from.params.route)))
+        },
+        render: h => h()
+      }
+    }
+  ]
+}
 
 /**
  * 在主框架之外显示
@@ -79,12 +77,9 @@ const errorPage = [
   }
 ]
 
-// 导出需要显示菜单的
-export const frameInRoutes = frameIn
-
 // 重新组织后导出
 export default [
-  ...frameIn,
+  frameRoute,
   ...frameOut,
   ...errorPage
 ]

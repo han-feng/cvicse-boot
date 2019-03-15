@@ -1,13 +1,13 @@
 // FIXME 临时跑通逻辑
 import menu from '@/menu'
-import { frameInRoutes } from './routes'
+import { frameRoute } from './routes'
 import util from '@/libs/util'
 import setting from '@/setting'
 
 export default {
   created () {
     // 处理路由 得到每一级的路由设置
-    this.$store.commit('d2admin/page/init', frameInRoutes)
+    this.$store.commit('d2admin/page/init', [ frameRoute ])
     // 设置菜单
     this.$store.dispatch('d2admin/menu/set', menu)
     // 初始化菜单搜索功能

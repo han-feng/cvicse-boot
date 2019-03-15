@@ -23,10 +23,10 @@ export default {
       d2admin: d2AdminVuePlugin
     },
     'vue.options': {
-      d2admin: vueOptions
+      frame: vueOptions
     },
-    'vue.router': {
-      d2admin: {
+    'vue.router.addRoutes': {
+      frame: {
         parent: 'root',
         routes
       }

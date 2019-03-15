@@ -12,7 +12,7 @@ export default {
     },
     'vue.options': {
     },
-    'vue.router': {
+    'vue.router.addRoutes': {
     },
     'vue.router.event': {
     },

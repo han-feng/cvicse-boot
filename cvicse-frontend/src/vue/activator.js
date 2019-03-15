@@ -57,8 +57,8 @@ export default {
       options.push(configs[key])
     }
 
-    // 处理 vue.router
-    configs = moduleConfig.getExtension('vue.router')
+    // 处理 vue.router.addRoutes
+    configs = moduleConfig.getExtension('vue.router.addRoutes')
     const routes = []
     const parentRoutes = {}
     const unresolved = {}
@@ -109,10 +109,9 @@ export default {
       // TODO 完善日志机制
       console.log(`Error: 父路由“${key}”不存在`)
     }
+
     // 加入路由
     router.addRoutes(routes)
-
-    console.log('>>>>>>>>> routes', routes)
 
     // 处理 vue.router.event
     configs = moduleConfig.getExtension('vue.router.event')
