@@ -9,9 +9,9 @@ import '@/assets/svg-icons'
 // 过滤器
 import d2VueFiltersDate from '@d2-projects/vue-filters-date'
 // 功能插件
-import pluginError from '@/plugin/error'
-import pluginLog from '@/plugin/log'
-import pluginOpen from '@/plugin/open'
+import pluginError from '../error'
+import pluginLog from '../log'
+import pluginOpen from '../open'
 
 export default {
   async install (Vue, options) {

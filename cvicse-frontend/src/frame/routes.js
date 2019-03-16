@@ -16,7 +16,7 @@ export const frameRoute = {
       meta: {
         auth: true
       },
-      component: () => import('@/pages/index')
+      component: () => import('./view/index')
     },
     // 刷新页面 必须保留
     {
@@ -53,7 +53,7 @@ const frameOut = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/pages/login')
+    component: () => import('./view/login')
   }
 ]
 
@@ -65,14 +65,14 @@ const errorPage = [
   {
     path: '/403',
     name: '403',
-    component: () => import('@/pages/error-page'),
+    component: () => import('./view/error-page'),
     props: { code: 403 }
   },
   // 404
   {
     path: '*',
     name: '404',
-    component: () => import('@/pages/error-page'),
+    component: () => import('./view/error-page'),
     props: { code: 404 }
   }
 ]

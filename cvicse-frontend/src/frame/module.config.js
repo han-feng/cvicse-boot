@@ -4,7 +4,7 @@
 import vueOptions from './vue.options'
 
 import vuePlugin from './vue.plugin'
-import d2AdminVuePlugin from '@/plugin/d2admin'
+import d2AdminVuePlugin from './plugin/d2admin'
 
 import routes from './routes'
 import vueRouterEvent from './vue.router.event'
