@@ -1,8 +1,4 @@
-/**
- * The file enables `@/store/index.js` to import all vuex modules
- * in a one-shot manner. There should not be any reason to edit this file.
- */
-
+// 导入 modules 下的 Vuex 模块
 const files = require.context('./modules', false, /\.js$/)
 const modules = {}
 

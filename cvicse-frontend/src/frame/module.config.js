@@ -1,14 +1,16 @@
 /**
  * 模块描述文件
  */
-import d2AdminVuePlugin from '@/plugin/d2admin'
-import d2AdminVuexModule from '@/store/modules/d2admin'
-
 import vueOptions from './vue.options'
+
 import vuePlugin from './vue.plugin'
-import vueRouterEvent from './vue.router.event'
+import d2AdminVuePlugin from '@/plugin/d2admin'
+
 import routes from './routes'
-import session from '@/store/modules/session'
+import vueRouterEvent from './vue.router.event'
+
+import session from './store/session'
+import d2AdminVuexModule from './store/d2admin'
 
 session.storage = 'session'
 
