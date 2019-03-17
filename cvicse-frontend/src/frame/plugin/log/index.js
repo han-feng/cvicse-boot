@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from 'modular-vue/store'
 import util from '@/libs/util'
 
 export default {

@@ -1,5 +1,5 @@
 import Qs from 'qs'
-import request from '@/plugin/axios'
+import request from '../plugin/axios'
 import serverConfig from 'serverConfig'
 
 export function AccountLogin (data) {
