@@ -18,7 +18,7 @@
 		<version>2.0.6.RELEASE</version>
 	</parent>
 	<properties>
-		<revision>1.0-SNAPSHOT</revision>
+		<revision>1.0.0-SNAPSHOT</revision>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
