@@ -1,4 +1,4 @@
-import store from 'modular-vue/store'
+import { store } from 'modular-vue'
 import setting from '@/setting'
 import { ANONYMOUS, LOGGEDIN, CHECK } from './Auth.Constant'
 

@@ -107,8 +107,8 @@ module.exports = {
       .end()
 
     // 重新设置 alias
-    config.resolve.alias
-      .set('modular-vue', resolve('src/vue'))
+    // config.resolve.alias
+    //   .set('modular-vue', resolve('src/vue'))
 
     // 判断环境加入模拟数据
     if (process.env.VUE_APP_BUILD_MODE !== 'nomock') {

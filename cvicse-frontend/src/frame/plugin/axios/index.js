@@ -1,4 +1,4 @@
-import store from 'modular-vue/store'
+import { store } from 'modular-vue'
 import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'

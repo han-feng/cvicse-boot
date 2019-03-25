@@ -4,8 +4,7 @@ import Vue from 'vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import store from 'modular-vue/store'
-import router from 'modular-vue/router'
+import { router, store } from 'modular-vue'
 
 import util from '@/libs/util.js'
 import { checkPermission } from '@/libs/Auth'
