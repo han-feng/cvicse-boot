@@ -1,14 +1,14 @@
 /**
  * 模块描述文件
  */
-import vueOptions from './vue.options'
 
+import { ExtensionPointType } from 'modular-core'
+
+import vueOptions from './vue.options'
 import vuePlugin from './vue.plugin'
 import d2AdminVuePlugin from './plugin/d2admin'
-
 import routes from './routes'
 import vueRouterEvent from './vue.router.event'
-
 import session from './store/session'
 import d2AdminVuexModule from './store/d2admin'
 
@@ -16,33 +16,23 @@ session.storage = 'session'
 
 export default {
   name: 'frame',
-  dependencies: [
-    'vue'
-  ],
+  dependencies: ['vue'],
   extensions: {
-    'vue.plugin': {
-      frame: vuePlugin,
-      d2admin: d2AdminVuePlugin
+    'vue.plugins': [vuePlugin, d2AdminVuePlugin],
+    'vue.options': vueOptions,
+    'vue.router.routes': {
+      parent: 'root',
+      routes
     },
-    'vue.options': {
-      frame: vueOptions
-    },
-    'vue.router.addRoutes': {
-      frame: {
-        parent: 'root',
-        routes
-      }
-    },
-    'vue.router.event': {
-      frame: vueRouterEvent
-    },
-    'vuex.module': {
+    'vue.router.hooks': vueRouterEvent,
+    'vuex.modules': {
       session,
       d2admin: d2AdminVuexModule
     }
   },
   extensionPoints: {
     menu: {
+      type: ExtensionPointType.Multiple
     }
   }
 }

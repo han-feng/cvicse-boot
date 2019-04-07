@@ -5,15 +5,11 @@ import routes from './routes'
 
 export default {
   name: 'demo',
-  dependencies: [
-    'frame'
-  ],
+  dependencies: ['frame'],
   extensions: {
-    'vue.router.addRoutes': {
-      demo: {
-        parent: 'frame',
-        routes
-      }
+    'vue.router.routes': {
+      parent: 'frame',
+      routes
     }
   }
 }
