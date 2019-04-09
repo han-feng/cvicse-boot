@@ -1,9 +1,9 @@
 module.exports = function (api) {
-  api.cache(true)
+  const env = api.cache(() => process.env.NODE_ENV)
   const presets = []
   const plugins = []
 
-  if (process.env.NODE_ENV === 'test') {
+  if (env === 'test') {
     presets.push([
       '@babel/preset-env',
       {

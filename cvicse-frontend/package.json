@@ -22,7 +22,6 @@
     "@d2-projects/d2-crud": "^2.0.5",
     "@d2-projects/vue-filters-date": "^1.0.9",
     "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.15.1",
     "dayjs": "^1.8.12",
     "element-ui": "^2.7.2",
@@ -45,8 +44,7 @@
     "vue": "^2.6.10",
     "vue-i18n": "^8.10.0",
     "vue-router": "^3.0.2",
-    "vuex": "^3.1.0",
-    "vuex-along": "^1.2.3"
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -61,13 +59,13 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^23.6.0",
     "babel-plugin-component": "^1.1.1",
     "babel-plugin-require-context-hook": "^1.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
     "http-server": "^0.11.1",
-    "jest": "^24.7.1",
+    "jest": "^23.6.0",
     "lint-staged": "^8.1.4",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.0.1",
@@ -152,11 +150,11 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
+    "src/*.js": [
       "vue-cli-service lint",
       "git add"
     ],
-    "*.vue": [
+    "src/*.vue": [
       "vue-cli-service lint",
       "git add"
     ]
