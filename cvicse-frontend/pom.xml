@@ -1,24 +1,16 @@
-<?xml version="1.0"?>
-<project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+<?xml version="1.0" ?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>com.cvicse.boot</groupId>
 		<artifactId>cvicse-boot</artifactId>
 		<version>${revision}</version>
 		<relativePath>..</relativePath>
 	</parent>
-
 	<artifactId>cvicse-frontend</artifactId>
 	<packaging>jar</packaging>
-
 	<name>CVICSE Boot Frontend</name>
 	<url>http://www.inforbus.com</url>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -36,8 +28,8 @@
 						</goals>
 						<phase>generate-resources</phase>
 						<configuration>
-							<nodeVersion>v11.6.0</nodeVersion>
-							<npmVersion>6.5.0</npmVersion>
+							<nodeVersion>v11.11.0</nodeVersion>
+							<npmVersion>6.9.0</npmVersion>
 							<nodeDownloadRoot>http://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
 							<npmDownloadRoot>https://registry.npm.taobao.org/npm/-/</npmDownloadRoot>
 						</configuration>
@@ -73,13 +65,13 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>npm test:unit</id>
+						<id>npm test</id>
 						<goals>
 							<goal>npm</goal>
 						</goals>
 						<phase>test</phase>
 						<configuration>
-							<arguments>run test:unit</arguments>
+							<arguments>test</arguments>
 						</configuration>
 					</execution>
 				</executions>
@@ -106,5 +98,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
