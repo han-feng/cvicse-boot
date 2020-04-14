@@ -22,7 +22,7 @@
           <TabPane
             v-for="page in opened"
             :key="page.fullPath"
-            :label="page.meta.title || '未命名'"
+            :label="getTitle(page)"
             :name="page.fullPath"/>
         </Tabs>
       </div>
@@ -84,7 +84,7 @@ export default {
     ])
   },
   created () {
-    this.clearSelection = window['getSelection'] ? function () {
+    this.clearSelection = window.getSelection ? function () {
       window.getSelection().removeAllRanges()
     } : function () {
       document.selection.empty()
@@ -99,6 +99,19 @@ export default {
       'closeAll',
       'maximizedToggle'
     ]),
+    getTitle (page) {
+      console.log('>>>>>', page)
+      if (page.query && page.query.title) {
+        return page.query.title
+      }
+      if (page.params && page.params.title) {
+        return page.params.title
+      }
+      if (page.meta && page.meta.title) {
+        return page.meta.title
+      }
+      return '未命名'
+    },
     handleDbclickTabs () {
       this.maximizedToggle()
       this.clearSelection()

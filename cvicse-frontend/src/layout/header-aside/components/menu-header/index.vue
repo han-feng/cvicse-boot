@@ -5,7 +5,7 @@
         <Menu mode="horizontal" :default-active="active" @select="handleHeaderMenuSelect">
           <template v-for="(menu, menuIndex) in header">
             <MenuItem v-if="menu.children === undefined" :menu="menu" :key="menuIndex"/>
-            <HeaderMenuSub v-else :menu="menu" :key="menuIndex"/>
+            <MenuSub v-else :menu="menu" :key="menuIndex"/>
           </template>
         </Menu>
       </div>
@@ -25,15 +25,56 @@ import { throttle } from 'lodash'
 import { mapState } from 'vuex'
 import menuMixin from '../mixin/menu'
 import MenuItem from '../components/menu-item'
-import HeaderMenuSub from '../components/header-menu-sub'
+// import HeaderMenuSub from '../components/header-menu-sub'
+import MenuSub from '../components/menu-sub'
 
-const recursive = (menu, path) => {
-  if (menu.path === path) {
-    return true
-  } else if (menu.children) {
-    return menu.children.some(child => recursive(child, path))
+// const recursive = (menu, path) => {
+//   if (menu.path === path) {
+//     return true
+//   } else if (menu.children && menu.children.some(child => recursive(child, path))) {
+//     return true
+//   } else if (menu.menus && menu.menus.some(child => recursive(child, path))) {
+//     return true
+//   }
+//   return false
+// }
+
+const findSubMenu = (menu, path) => {
+  for (let i = 0; i < menu.length; i++) {
+    const item = menu[i]
+    if (item.path === path) {
+      return item
+    }
+    if (item.children) {
+      const i = findSubMenu(item.children, path)
+      if (i) {
+        return i
+      }
+    }
   }
-  return false
+  return null
+}
+
+const findItem = (menu, path) => {
+  for (let i = 0; i < menu.length; i++) {
+    const item = menu[i]
+    if (item.path === path) {
+      return item
+    }
+    if (item.menus) {
+      const i = findItem(item.menus, path)
+      if (i) {
+        return item
+      }
+    }
+    if (item.children) {
+      const i = findItem(item.children, path)
+      if (i) {
+        return i
+      }
+    }
+  }
+  return null
 }
 
 export default {
@@ -44,7 +85,7 @@ export default {
   components: {
     Menu,
     MenuItem,
-    HeaderMenuSub
+    MenuSub
   },
   computed: {
     ...mapState('d2admin/menu', [
@@ -62,16 +103,16 @@ export default {
     }
   },
   watch: {
+    // eslint-disable-next-line quote-props
     '$route': {
       handler ({ fullPath }) {
-        let item = this.header.find(i => {
-          return recursive(i, fullPath)
-        })
+        let item = findItem(this.header, fullPath)
         if (!item) {
           item = this.header[0]
         }
         this.active = item.path
-        const subMenu = item.children
+        // const subMenu = item.children
+        const subMenu = item.menus
         this.$store.commit('d2admin/menu/asideSet', subMenu, { root: true })
       },
       immediate: true
@@ -80,9 +121,9 @@ export default {
   methods: {
     handleHeaderMenuSelect (index, indexPath) {
       if (/^header-menu-\d+$/.test(index)) {
-        const item = this.header.find(i => i.path === index)
+        const item = findSubMenu(this.header, index)
         if (item) {
-          const subMenu = item.children
+          const subMenu = item.menus
           this.$store.commit('d2admin/menu/asideSet', subMenu, { root: true })
         }
       } else {

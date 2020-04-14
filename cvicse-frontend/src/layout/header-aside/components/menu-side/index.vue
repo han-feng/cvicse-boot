@@ -57,7 +57,7 @@ export default {
       }, 500)
     },
     // 监听路由 控制侧边栏激活状态
-    '$route': {
+    $route: {
       handler ({ fullPath }) {
         this.active = fullPath
         this.$nextTick(() => {

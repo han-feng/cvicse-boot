@@ -3,6 +3,24 @@ import setting from '@/setting.js'
 import { uniqueId, isArray, cloneDeep } from 'lodash'
 import { checkPermission } from '@/libs/Auth'
 
+const processMenu = function (menu) {
+  menu.forEach(item => {
+    if (isArray(item.children)) {
+      processMenu(item.children)
+    } else if (isArray(item.menus)) {
+      item.path = uniqueId('header-menu-')
+      item.menus.parent = item.path
+    } else {
+      // 没有子菜单的情况，自动复制自身成为唯一子菜单
+      item.menus = [cloneDeep(item)]
+      item.path = uniqueId('header-menu-')
+      item.menus.parent = item.path
+    }
+    // 根据权限设置标志
+    authCheck(item)
+  })
+}
+
 export default {
   namespaced: true,
   state: {
@@ -57,7 +75,7 @@ export default {
     asideCollapseLoad ({ dispatch, commit }) {
       return new Promise(async resolve => {
         // store 赋值
-        let asideCollapse = await dispatch('d2admin/db/get', {
+        const asideCollapse = await dispatch('d2admin/db/get', {
           dbName: 'sys',
           path: 'menu.asideCollapse',
           defaultValue: setting.menu.asideCollapse,
@@ -77,19 +95,7 @@ export default {
      */
     headerSet (state, menu) {
       // store 赋值
-      menu.forEach(item => {
-        if (isArray(item.children)) {
-          item.path = uniqueId('header-menu-')
-          item.children.parent = item.path
-        } else {
-          // 没有子菜单的情况，自动复制自身成为唯一子菜单
-          item.children = [ cloneDeep(item) ]
-          item.path = uniqueId('header-menu-')
-          item.children.parent = item.path
-        }
-        // 根据权限设置标志
-        authCheck(item)
-      })
+      processMenu(menu)
       state.header = menu
     },
     /**
@@ -118,6 +124,14 @@ const authCheck = function (menu) {
   if (isArray(menu.children)) {
     let auth = false
     menu.children.forEach(item => {
+      if (authCheck(item)) {
+        auth = true
+      }
+    })
+    menu.auth = auth
+  } else if (isArray(menu.menus)) {
+    let auth = false
+    menu.menus.forEach(item => {
       if (authCheck(item)) {
         auth = true
       }

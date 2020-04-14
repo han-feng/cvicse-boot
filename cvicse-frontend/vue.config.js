@@ -124,7 +124,8 @@ module.exports = {
     ],
     externals: {
       logger: 'console',
-      serverConfig: 'serverConfig'
+      serverConfig: 'serverConfig',
+      menuConfig: 'menuConfig'
     }
   }
 }

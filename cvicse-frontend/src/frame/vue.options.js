@@ -1,5 +1,6 @@
 // FIXME 临时跑通逻辑
-import menu from '@/menu'
+// import menu from '@/menu'
+import menuConfig from 'menuConfig'
 import { frameRoute } from './routes'
 import util from '@/libs/util'
 import setting from '@/setting'
@@ -7,11 +8,11 @@ import setting from '@/setting'
 export default {
   created () {
     // 处理路由 得到每一级的路由设置
-    this.$store.commit('d2admin/page/init', [ frameRoute ])
+    this.$store.commit('d2admin/page/init', [frameRoute])
     // 设置菜单
-    this.$store.dispatch('d2admin/menu/set', menu)
+    this.$store.dispatch('d2admin/menu/set', menuConfig.applications)
     // 初始化菜单搜索功能
-    this.$store.commit('d2admin/search/init', menu)
+    this.$store.commit('d2admin/search/init', menuConfig.applications)
   },
   mounted () {
     // 展示系统信息

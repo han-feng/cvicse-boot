@@ -1,3 +1,4 @@
+import 'default-passive-events'
 import Modular from 'modular-core'
 import vueModule from 'modular-vue'
 import App from './App'

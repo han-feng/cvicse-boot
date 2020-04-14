@@ -41,6 +41,14 @@ export const frameRoute = {
         },
         render: h => h()
       }
+    },
+    // iframe 外链
+    {
+      path: 'external',
+      name: 'external',
+      // hidden: true,
+      meta: { title: '外部链接' },
+      component: () => import('./external')
     }
   ]
 }
