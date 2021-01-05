@@ -21,7 +21,7 @@
     "@babel/runtime": "^7.9.2",
     "@d2-projects/d2-crud": "^2.1.2",
     "@d2-projects/vue-filters-date": "^1.0.9",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "better-scroll": "^1.15.2",
     "dayjs": "^1.8.24",
     "default-passive-events": "^1.0.10",
